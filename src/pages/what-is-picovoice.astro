@@ -1,0 +1,42 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="What is PicoVoice"
+  description="PicoVoiceの定義、特徴、購入形式を簡潔に説明するページ"
+  path="/what-is-picovoice"
+  type="article"
+>
+  <section class="card">
+    <small class="meta">Definition</small>
+    <h1>What is PicoVoice</h1>
+    <p>PicoVoiceは、VTuberや音声クリエイターが短尺ボイスを販売できる、期間限定型のボイスマーケットプレイスです。</p>
+    <p>1つのボイスは原則30秒前後で、公開期限内のみ新規購入できます。</p>
+  </section>
+
+  <section class="card">
+    <h2>要点</h2>
+    <ul>
+      <li>短尺ボイス（約30秒）を中心にしたマーケット</li>
+      <li>販売期限（publish_until）を持つ期間限定モデル</li>
+      <li>購入方式は STREAM（アプリ内再生）と EXPORT（ダウンロード）</li>
+      <li>価格は固定額ではなく価格ティア制</li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2>How it works</h2>
+    <ol>
+      <li>クリエイターがボイスを投稿する</li>
+      <li>購入者は公開中ボイスを選ぶ</li>
+      <li>用途に応じて STREAM または EXPORT を購入する</li>
+      <li>公開期限後は新規購入不可（既存購入分は利用条件に従う）</li>
+    </ol>
+  </section>
+
+  <section class="card">
+    <h2>In English</h2>
+    <p>PicoVoice is a limited-time voice marketplace for VTubers and voice creators. Clips are typically around 30 seconds, and users can buy either STREAM (in-app playback) or EXPORT (download). Pricing is managed by product tiers, not a single fixed amount.</p>
+  </section>
+</BaseLayout>

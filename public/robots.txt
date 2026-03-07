@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://lp.picovoice.app/sitemap.xml
