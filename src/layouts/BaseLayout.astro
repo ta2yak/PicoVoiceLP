@@ -7,6 +7,8 @@ interface Props {
   path: string;
   type?: "website" | "article";
   extraJsonLd?: Record<string, unknown>[];
+  lang?: "ja" | "en";
+  alternatePath?: string;
 }
 
 const {
@@ -15,11 +17,23 @@ const {
   path,
   type = "website",
   extraJsonLd = [],
+  lang = "ja",
+  alternatePath,
 } = Astro.props;
 
 const siteUrl = "https://lp.picovoice.app";
 const url = new URL(path, siteUrl).toString();
 const fullTitle = `${title} | PicoVoice`;
+
+const navLabels =
+  lang === "en"
+    ? { what: "What is", how: "How to", faq: "FAQ", compare: "Compare", guide: "AI Guide" }
+    : { what: "概要", how: "販売ガイド", faq: "FAQ", compare: "比較", guide: "AI Guide" };
+
+const footerText =
+  lang === "en"
+    ? "Official LLMO pages for PicoVoice. Updated: 2026-03-07"
+    : "PicoVoice公式 LLMOページ。最終更新: 2026-03-07";
 
 const sharedJsonLd: Record<string, unknown>[] = [
   {
@@ -41,7 +55,7 @@ const sharedJsonLd: Record<string, unknown>[] = [
 ---
 
 <!doctype html>
-<html lang="ja">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -66,20 +80,41 @@ const sharedJsonLd: Record<string, unknown>[] = [
     <header class="site-header">
       <div class="header-inner">
         <a class="brand" href="/">PicoVoice LLMO</a>
-        <nav>
-          <a href="/what-is-picovoice">What is</a>
-          <a href="/how-to-sell-vtuber-voice">How to</a>
-          <a href="/faq">FAQ</a>
-          <a href="/picovoice-vs-booth">Compare</a>
-          <a href="/ai-guide">AI Guide</a>
-        </nav>
+        <div class="header-tools">
+          <nav>
+            <a href="/what-is-picovoice">{navLabels.what}</a>
+            <a href="/how-to-sell-vtuber-voice">{navLabels.how}</a>
+            <a href="/faq">{navLabels.faq}</a>
+            <a href="/picovoice-vs-booth">{navLabels.compare}</a>
+            <a href="/ai-guide">{navLabels.guide}</a>
+          </nav>
+          {
+            alternatePath && (
+              <div class="lang-switch" aria-label="language switch">
+                {lang === "ja" ? (
+                  <>
+                    <strong>日本語</strong>
+                    <span>/</span>
+                    <a href={alternatePath}>English</a>
+                  </>
+                ) : (
+                  <>
+                    <a href={alternatePath}>日本語</a>
+                    <span>/</span>
+                    <strong>English</strong>
+                  </>
+                )}
+              </div>
+            )
+          }
+        </div>
       </div>
     </header>
     <main>
       <slot />
     </main>
     <footer>
-      <p>Official LLMO pages for PicoVoice. Updated: 2026-03-07</p>
+      <p>{footerText}</p>
     </footer>
   </body>
 </html>

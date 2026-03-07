@@ -1,0 +1,16 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import LandingTop from "../../components/LandingTop.astro";
+
+const appStoreUrl = "https://apps.apple.com/app/picovoice/id6759188352";
+---
+
+<BaseLayout
+  title="PicoVoice | Limited, but joyful"
+  description="A VTuber voice marketplace for fans. Discover limited-time short voices with STREAM/EXPORT options."
+  path="/en/"
+  lang="en"
+  alternatePath="/"
+>
+  <LandingTop lang="en" appStoreUrl={appStoreUrl} />
+</BaseLayout>
