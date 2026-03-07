@@ -9,19 +9,25 @@ import CountdownBand from "./CountdownBand.astro";
       <span class="avatar">A</span>
       <div>
         <p class="creator-name">Airi Nova</p>
-        <p class="posted">posted 2h ago</p>
+        <p class="posted">2時間前に公開</p>
       </div>
     </div>
     <span class="status">LIVE</span>
   </header>
 
-  <h3>「おはよう、今日も一緒にがんばろう」30秒ボイス</h3>
+  <h3>「おはよう、今日も一緒にがんばろう」</h3>
 
   <WaveformCanvas urgent={false} />
 
   <div class="price-row">
-    <span>ストリーミング価格</span>
-    <span>ダウンロード価格</span>
+    <div class="price-tag">
+      <span class="price-label">ストリーミング</span>
+      <span class="price-value">¥120</span>
+    </div>
+    <div class="price-tag">
+      <span class="price-label">ダウンロード</span>
+      <span class="price-value">¥250</span>
+    </div>
   </div>
 
   <CountdownBand />

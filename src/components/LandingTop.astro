@@ -13,42 +13,80 @@ interface Props {
 const { lang, appStoreUrl } = Astro.props;
 const isEn = lang === "en";
 
+// SVG icon definitions (24x24 viewBox, currentColor)
+const icons = {
+  alarm: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2"/><path d="M5 3 2 6"/><path d="M22 6l-3-3"/><path d="M6.38 18.7 4 21"/><path d="M17.64 18.67 20 21"/></svg>',
+  headphones: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>',
+  bell: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>',
+  moon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9z"/><path d="M19 3v4"/><path d="M21 5h-4"/></svg>',
+  diamond: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12l4 6-10 13L2 9z"/><path d="M11 3l1 6"/><path d="M2 9h20"/><path d="M7 9l5 13 5-13"/></svg>',
+  music: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>',
+  heart: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7z"/></svg>',
+  mic: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="11" rx="3"/><path d="M5 10a7 7 0 0 0 14 0"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="8" y1="22" x2="16" y2="22"/></svg>',
+  timer: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2"/><path d="M10 2h4"/></svg>',
+  coins: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="6"/><path d="M18.09 10.37A6 6 0 1 1 10.34 18"/><path d="M7 6h1v4"/><path d="m16.71 13.88.7.71-2.82 2.82"/></svg>',
+};
+
 const t = isEn
   ? {
-      eyebrow: "For VTubers & Fans",
-      title: "Limited, but joyful.",
-      lead:
-        "PicoVoice is a VTuber voice marketplace where fans discover and own short voice moments before they disappear.",
-      leadSub:
-        "Each listing is typically around 30 seconds and sold for a limited time with Streaming or Download purchase options.",
-      badges: ["~30 sec voices", "Limited-time drops", "Streaming / Download"],
-      ctaPlay: "Start Listening",
-      ctaCreate: "Start as Creator",
-      ctaAria: "primary actions",
-      preview: "Voice Market Preview",
+      eyebrow: "For VTuber Fans",
+      title: "Own your favorite voice,\nbefore it's gone.",
+      lead: "PicoVoice is a marketplace where fans collect limited-time voice moments from VTubers — short, personal, and yours to keep.",
+      leadSub: "Each drop is ~30 seconds, available for a limited time only. Choose Streaming or Download.",
+      badges: ["~30 sec voices", "Limited drops", "From free"],
+      ctaPrimary: "Get Free on App Store",
+      ctaAria: "download app",
+      preview: "Now Playing",
+
+      socialProofTitle: "Fans are already listening",
+      socialProofItems: [
+        { value: "100+", label: "Voice drops" },
+        { value: "30sec", label: "Per voice" },
+        { value: "Free", label: "To start" },
+      ],
+
+      scenesEyebrow: "Your Daily Life, with Their Voice",
+      scenes: [
+        { icon: icons.alarm, h: "Morning alarm", p: "Wake up to your favorite VTuber's \"Good morning!\" every day." },
+        { icon: icons.headphones, h: "Commute companion", p: "Listen to exclusive voices while you're on the go." },
+        { icon: icons.bell, h: "Notification sounds", p: "Set a VTuber voice as your notification — a tiny joy, many times a day." },
+        { icon: icons.moon, h: "Night routine", p: "End your day with a soothing \"Goodnight\" from your oshi." },
+      ],
+
+      featuresEyebrow: "Why PicoVoice",
       features: [
-        { h: "Made for VTuber fans", p: "Collect voice moments from your favorite creators and keep them close in your daily life." },
-        { h: "Timed drops create hype", p: "Every listing has an end time. Scarcity and timing make each release feel special." },
-        { h: "Two purchase modes", p: "Choose Streaming for in-app playback or Download for file-based use." },
+        { icon: icons.diamond, h: "Limited = special", p: "Every voice has an end date. That scarcity makes each drop feel like a collectible." },
+        { icon: icons.music, h: "Stream or download", p: "Streaming for in-app playback, or Download to save the file and use it anywhere." },
+        { icon: icons.heart, h: "Built for oshi-katsu", p: "Designed for fans who want to feel closer to their favorite VTubers, every day." },
       ],
-      capEyebrow: "Core Capabilities",
-      capTitle: "Product experiences for both creators and viewers",
-      caps: [
-        { h: "Discovery (S04 / S09)", p: "Browse live and ended voices in Marketplace and Library with a unified card UI." },
-        { h: "Voice Detail (S05)", p: "Preview, purchase, play, and export from a single detail surface with countdown visibility." },
-        { h: "Entitlements", p: "Streaming unlocks in-app playback, and Download unlocks file-based usage based on your purchase." },
-        { h: "Creator Flow (S10-S13)", p: "Creators can record, set metadata, upload, and publish short-form voice content." },
+
+      dropEyebrow: "Limited Drops",
+      dropTitle: "The countdown is always ticking",
+      dropDesc: "When a VTuber publishes a voice, the clock starts. Miss the window, and it's gone forever.",
+
+      howEyebrow: "How It Works",
+      howTitle: "4 simple steps",
+      howSteps: [
+        { icon: "1", h: "Browse", p: "Explore voice drops from VTubers in the Marketplace." },
+        { icon: "2", h: "Preview", p: "Listen to a sample before you decide." },
+        { icon: "3", h: "Purchase", p: "Choose Streaming or Download and get it instantly." },
+        { icon: "4", h: "Enjoy", p: "Play anytime in-app, or use the file as alarm, notification, and more." },
       ],
-      showcaseEyebrow: "S04-inspired Card Language",
-      showcaseTitle: "The app's visual language, translated to web",
-      flowEyebrow: "How It Works",
-      flowTitle: "Simple loop for fans and creators",
-      flowSteps: [
-        "Find a voice in Marketplace",
-        "Choose Streaming or Download",
-        "Enjoy playback or saved usage before expiration",
-        "Creators launch new timed drops",
+
+      creatorEyebrow: "For VTubers & Creators",
+      creatorTitle: "Monetize your voice in a new way",
+      creatorLead: "Record a short voice, set a time limit, and publish. PicoVoice handles the rest — payments, delivery, and fan experience.",
+      creatorFeatures: [
+        { icon: icons.mic, h: "Easy recording", p: "Record directly in the app. No external tools needed." },
+        { icon: icons.timer, h: "Timed exclusivity", p: "Set how long each voice is available. Create urgency naturally." },
+        { icon: icons.coins, h: "Instant monetization", p: "Earn from each purchase. Streaming and Download options for fans." },
       ],
+      creatorCta: "Start as Creator",
+
+      finalTitle: "Your oshi's voice, in your pocket.",
+      finalSub: "Download PicoVoice for free and start collecting.",
+      finalCta: "Get Free on App Store",
+
       links: [
         { href: "/what-is-picovoice", label: "What is PicoVoice" },
         { href: "/faq", label: "FAQ" },
@@ -56,68 +94,88 @@ const t = isEn
       ],
     }
   : {
-      eyebrow: "VTuberと視聴者のために",
-      title: "Limited, but joyful.",
-      lead:
-        "PicoVoiceは、VTuberの声を「今だけ」の体験として届ける、視聴者向けボイスマーケットプレイスです。",
-      leadSub:
-        "1作品は約30秒。期間限定で販売され、購入方式は ストリーミング / ダウンロード から選べます。",
-      badges: ["30秒前後", "期間限定ドロップ", "ストリーミング / ダウンロード"],
-      ctaPlay: "聴いてみる",
-      ctaCreate: "投稿をはじめる",
-      ctaAria: "主な操作",
-      preview: "Voice Market Preview",
+      eyebrow: "VTuberファンのために",
+      title: "推しの声を、\n今だけの特別に。",
+      lead: "PicoVoiceは、VTuberの短尺ボイスを期間限定で届けるファン向けマーケットプレイス。推しの声を集めて、あなただけの体験にしよう。",
+      leadSub: "1作品は約30秒。期間限定で販売され、ストリーミング or ダウンロードで楽しめます。",
+      badges: ["約30秒", "期間限定ドロップ", "無料から"],
+      ctaPrimary: "App Storeで無料ダウンロード",
+      ctaAria: "アプリダウンロード",
+      preview: "Now Playing",
+
+      socialProofTitle: "ファンはもう聴き始めています",
+      socialProofItems: [
+        { value: "100+", label: "ボイス作品" },
+        { value: "30秒", label: "1作品あたり" },
+        { value: "無料", label: "で始められる" },
+      ],
+
+      scenesEyebrow: "推しの声がある毎日",
+      scenes: [
+        { icon: icons.alarm, h: "朝の目覚まし", p: "推しの「おはよう」で始まる毎日。いつもの目覚ましが特別になる。" },
+        { icon: icons.headphones, h: "通勤のおともに", p: "移動中にお気に入りの限定ボイスを聴く。小さな幸せ。" },
+        { icon: icons.bell, h: "通知音にセット", p: "推しの声で通知が届く。何度でも嬉しいサプライズ。" },
+        { icon: icons.moon, h: "夜のおやすみ", p: "推しの「おやすみ」で一日を締めくくる。心が安らぐひととき。" },
+      ],
+
+      featuresEyebrow: "PicoVoiceが選ばれる理由",
       features: [
-        { h: "VTuber視聴者向け体験", p: "推しの声を短尺で集められる。日常の通知やアラームにも使いやすい設計です。" },
-        { h: "期間限定で熱量が高まる", p: "公開期限があるため、リリースの一瞬一瞬に価値が生まれます。" },
-        { h: "2つの購入方式", p: "ストリーミングはアプリ内再生、ダウンロードはファイル保存利用。用途別に選べます。" },
+        { icon: icons.diamond, h: "限定だから、特別", p: "すべてのボイスに公開期限あり。手に入れた瞬間が、コレクションの一部になる。" },
+        { icon: icons.music, h: "聴くも保存も自由", p: "ストリーミングでアプリ内再生。ダウンロードでファイル保存。好きな使い方で楽しめる。" },
+        { icon: icons.heart, h: "推し活のために生まれた", p: "VTuberファンが「推しをもっと近くに」感じるために設計されたアプリ。" },
       ],
-      capEyebrow: "Core Capabilities",
-      capTitle: "視聴者とクリエイター双方の主要機能",
-      caps: [
-        { h: "探索（S04 / S09）", p: "MarketplaceとLibraryで、LIVE/ENDEDを切り替えながらボイスを探せます。" },
-        { h: "作品詳細（S05）", p: "試聴・購入・再生・保存を1画面で完結。カウントダウン表示で期限も把握できます。" },
-        { h: "購入権限", p: "ストリーミングは再生権、ダウンロードは保存権。購入状態に応じて利用体験が切り替わります。" },
-        { h: "投稿フロー（S10-S13）", p: "録音、メタ入力、アップロード進捗を経て、短尺ボイスを公開できます。" },
+
+      dropEyebrow: "期間限定ドロップ",
+      dropTitle: "カウントダウンは止まらない",
+      dropDesc: "VTuberがボイスを公開した瞬間から、カウントダウン開始。期限を過ぎると、もう手に入らない。",
+
+      howEyebrow: "使い方",
+      howTitle: "かんたん4ステップ",
+      howSteps: [
+        { icon: "1", h: "見つける", p: "マーケットプレイスでVTuberのボイスを探す。" },
+        { icon: "2", h: "試聴する", p: "気になるボイスをその場でプレビュー。" },
+        { icon: "3", h: "購入する", p: "ストリーミングかダウンロードを選んで即ゲット。" },
+        { icon: "4", h: "楽しむ", p: "アプリで再生。ファイルはアラームや通知音にも。" },
       ],
-      showcaseEyebrow: "S04-inspired Card Language",
-      showcaseTitle: "アプリ本体のUIトーンを、そのままWebへ",
-      flowEyebrow: "How It Works",
-      flowTitle: "聴く人にも、つくる人にも、シンプルな導線",
-      flowSteps: [
-        "Marketplaceでボイスを見つける",
-        "ストリーミング / ダウンロード を選んで購入",
-        "期限内に再生・保存して楽しむ",
-        "クリエイターが新しい期間限定ドロップを公開",
+
+      creatorEyebrow: "VTuber・クリエイターの方へ",
+      creatorTitle: "あなたの声で、新しい収益を",
+      creatorLead: "短尺ボイスを録音して、期間を設定して公開するだけ。決済・配信・ファン体験はPicoVoiceがすべてサポート。",
+      creatorFeatures: [
+        { icon: icons.mic, h: "かんたん録音", p: "アプリ内で直接録音。外部ツール不要でスマホだけで完結。" },
+        { icon: icons.timer, h: "期間限定の熱量", p: "公開期間を自分で設定。自然な限定感がファンの購入意欲を引き出す。" },
+        { icon: icons.coins, h: "すぐに収益化", p: "購入のたびに報酬が発生。ストリーミングとダウンロード両方に対応。" },
       ],
+      creatorCta: "クリエイターとして始める",
+
+      finalTitle: "推しの声を、ポケットに。",
+      finalSub: "PicoVoiceを無料ダウンロードして、コレクションを始めよう。",
+      finalCta: "App Storeで無料ダウンロード",
+
       links: [
-        { href: "/what-is-picovoice", label: "What is PicoVoice" },
-        { href: "/faq", label: "FAQ" },
+        { href: "/what-is-picovoice", label: "PicoVoiceとは" },
+        { href: "/faq", label: "よくある質問" },
         { href: "/ai-guide", label: "AI Guide" },
       ],
     };
 ---
 
+<!-- ===== HERO ===== -->
 <section class="hero-lp">
   <HeroMotionLayer />
   <div class="hero-grid">
     <div class="hero-copy reveal-up">
       <p class="eyebrow">{t.eyebrow}</p>
-      <h1>{t.title}</h1>
+      <h1 set:html={t.title.replace("\n", "<br/>")} />
       <p class="lead">{t.lead}</p>
       <p class="lead-sub">{t.leadSub}</p>
       <div class="hero-badges" aria-label="core properties">
         {t.badges.map((badge) => <span>{badge}</span>)}
       </div>
-      <DualCTA
-        primaryHref={appStoreUrl}
-        secondaryHref={appStoreUrl}
-        primaryLabel={t.ctaPlay}
-        secondaryLabel={t.ctaCreate}
-        ariaLabel={t.ctaAria}
-      />
+      <a class="cta cta-coral cta-hero" href={appStoreUrl} target="_blank" rel="noreferrer">
+        {t.ctaPrimary}
+      </a>
     </div>
-
     <div class="hero-visual reveal-up delay-1">
       <div class="hero-visual-shell">
         <HeroIllustration />
@@ -130,23 +188,26 @@ const t = isEn
   </div>
 </section>
 
-<section class="section-grid reveal-up delay-1">
-  {t.features.map((item) => (
-    <article class="feature-card">
-      <h2>{item.h}</h2>
-      <p>{item.p}</p>
-    </article>
-  ))}
+<!-- ===== SOCIAL PROOF ===== -->
+<section class="social-proof reveal-up delay-1">
+  <p class="social-proof-title">{t.socialProofTitle}</p>
+  <div class="social-proof-grid">
+    {t.socialProofItems.map((item) => (
+      <div class="social-proof-item">
+        <span class="social-proof-value">{item.value}</span>
+        <span class="social-proof-label">{item.label}</span>
+      </div>
+    ))}
+  </div>
 </section>
 
-<section class="capability reveal-up delay-2">
-  <div class="showcase-head">
-    <p class="eyebrow">{t.capEyebrow}</p>
-    <h2>{t.capTitle}</h2>
-  </div>
-  <div class="capability-grid">
-    {t.caps.map((item) => (
-      <article class="capability-card">
+<!-- ===== USE SCENES ===== -->
+<section class="scenes reveal-up delay-1">
+  <p class="eyebrow center">{t.scenesEyebrow}</p>
+  <div class="scenes-grid">
+    {t.scenes.map((item) => (
+      <article class="scene-card">
+        <span class="scene-icon" set:html={item.icon} />
         <h3>{item.h}</h3>
         <p>{item.p}</p>
       </article>
@@ -154,34 +215,79 @@ const t = isEn
   </div>
 </section>
 
-<section class="showcase reveal-up delay-2">
-  <div class="showcase-head">
-    <p class="eyebrow">{t.showcaseEyebrow}</p>
-    <h2>{t.showcaseTitle}</h2>
+<!-- ===== WHY PICOVOICE ===== -->
+<section class="features-section reveal-up delay-2">
+  <p class="eyebrow center">{t.featuresEyebrow}</p>
+  <div class="section-grid">
+    {t.features.map((item) => (
+      <article class="feature-card">
+        <span class="feature-icon" set:html={item.icon} />
+        <h2>{item.h}</h2>
+        <p>{item.p}</p>
+      </article>
+    ))}
   </div>
-  <VoiceCardMock />
 </section>
 
-<section class="flow reveal-up delay-2">
-  <div class="flow-copy">
-    <p class="eyebrow">{t.flowEyebrow}</p>
-    <h2>{t.flowTitle}</h2>
-    <ol>
-      {t.flowSteps.map((step) => <li>{step}</li>)}
-    </ol>
-  </div>
-  <div class="flow-cta">
-    <DualCTA
-      primaryHref={appStoreUrl}
-      secondaryHref={appStoreUrl}
-      primaryLabel={t.ctaPlay}
-      secondaryLabel={t.ctaCreate}
-      ariaLabel={t.ctaAria}
-    />
-    <div class="inline-links">
-      {t.links.map((link) => (
-        <a href={link.href}>{link.label}</a>
-      ))}
+<!-- ===== LIMITED DROP SHOWCASE ===== -->
+<section class="showcase reveal-up delay-2">
+  <div class="showcase-split">
+    <div class="showcase-copy">
+      <p class="eyebrow">{t.dropEyebrow}</p>
+      <h2>{t.dropTitle}</h2>
+      <p class="showcase-desc">{t.dropDesc}</p>
     </div>
+    <div class="showcase-card-wrap">
+      <VoiceCardMock />
+    </div>
+  </div>
+</section>
+
+<!-- ===== HOW IT WORKS ===== -->
+<section class="how-section reveal-up delay-2" id="how-it-works">
+  <p class="eyebrow center">{t.howEyebrow}</p>
+  <h2 class="section-title">{t.howTitle}</h2>
+  <div class="how-grid">
+    {t.howSteps.map((step, i) => (
+      <div class="how-step">
+        <span class="how-number">{step.icon}</span>
+        <h3>{step.h}</h3>
+        <p>{step.p}</p>
+        {i < t.howSteps.length - 1 && <span class="how-arrow" aria-hidden="true">&rarr;</span>}
+      </div>
+    ))}
+  </div>
+</section>
+
+<!-- ===== FOR CREATORS ===== -->
+<section class="creator-section reveal-up delay-2" id="for-creators">
+  <div class="creator-head">
+    <p class="eyebrow">{t.creatorEyebrow}</p>
+    <h2>{t.creatorTitle}</h2>
+    <p class="creator-lead">{t.creatorLead}</p>
+  </div>
+  <div class="creator-grid">
+    {t.creatorFeatures.map((item) => (
+      <article class="creator-card">
+        <span class="feature-icon" set:html={item.icon} />
+        <h3>{item.h}</h3>
+        <p>{item.p}</p>
+      </article>
+    ))}
+  </div>
+  <div class="creator-cta-wrap">
+    <a class="cta cta-purple" href={appStoreUrl} target="_blank" rel="noreferrer">{t.creatorCta}</a>
+  </div>
+</section>
+
+<!-- ===== FINAL CTA ===== -->
+<section class="final-cta reveal-up delay-2">
+  <h2>{t.finalTitle}</h2>
+  <p>{t.finalSub}</p>
+  <a class="cta cta-coral cta-large" href={appStoreUrl} target="_blank" rel="noreferrer">{t.finalCta}</a>
+  <div class="inline-links">
+    {t.links.map((link) => (
+      <a href={link.href}>{link.label}</a>
+    ))}
   </div>
 </section>

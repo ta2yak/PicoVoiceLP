@@ -23,17 +23,38 @@ const {
 
 const siteUrl = "https://lp.picovoice.app";
 const url = new URL(path, siteUrl).toString();
-const fullTitle = `${title} | PicoVoice`;
 
 const navLabels =
   lang === "en"
-    ? { what: "What is", how: "How to", faq: "FAQ", compare: "Compare", guide: "AI Guide" }
-    : { what: "概要", how: "販売ガイド", faq: "FAQ", compare: "比較", guide: "AI Guide" };
+    ? {
+        howItWorks: "How It Works",
+        faq: "FAQ",
+        forCreators: "For Creators",
+        cta: "Get the App",
+      }
+    : {
+        howItWorks: "使い方",
+        faq: "よくある質問",
+        forCreators: "クリエイターの方へ",
+        cta: "アプリを入手",
+      };
 
-const footerText =
+const footerLinks =
   lang === "en"
-    ? "Official LLMO pages for PicoVoice. Updated: 2026-03-07"
-    : "PicoVoice公式 LLMOページ。最終更新: 2026-03-07";
+    ? {
+        what: "What is PicoVoice",
+        howToSell: "How to Sell",
+        compare: "Compare with BOOTH",
+        aiGuide: "AI Guide",
+        copyright: "PicoVoice",
+      }
+    : {
+        what: "PicoVoiceとは",
+        howToSell: "販売ガイド",
+        compare: "BOOTHとの比較",
+        aiGuide: "AI Guide",
+        copyright: "PicoVoice",
+      };
 
 const sharedJsonLd: Record<string, unknown>[] = [
   {
@@ -50,8 +71,22 @@ const sharedJsonLd: Record<string, unknown>[] = [
     url: siteUrl,
     inLanguage: ["ja", "en"],
   },
+  {
+    "@context": "https://schema.org",
+    "@type": "MobileApplication",
+    name: "PicoVoice",
+    operatingSystem: "iOS",
+    applicationCategory: "EntertainmentApplication",
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "JPY",
+    },
+  },
   ...extraJsonLd,
 ];
+
+const appStoreUrl = "https://apps.apple.com/app/picovoice/id6759188352";
 ---
 
 <!doctype html>
@@ -59,17 +94,25 @@ const sharedJsonLd: Record<string, unknown>[] = [
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{fullTitle}</title>
+    <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={url} />
+    {alternatePath && <link rel="alternate" hreflang={lang === "ja" ? "en" : "ja"} href={new URL(alternatePath, siteUrl).toString()} />}
+    <link rel="alternate" hreflang={lang} href={url} />
     <meta property="og:site_name" content="PicoVoice" />
     <meta property="og:type" content={type} />
-    <meta property="og:title" content={fullTitle} />
+    <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={url} />
-    <meta property="twitter:card" content="summary" />
-    <meta property="twitter:title" content={fullTitle} />
-    <meta property="twitter:description" content={description} />
+    <meta property="og:image" content={`${siteUrl}/og-image.png`} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content={lang === "ja" ? "ja_JP" : "en_US"} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={`${siteUrl}/og-image.png`} />
+    <meta name="theme-color" content="#7a5af8" />
     {
       sharedJsonLd.map((item) => (
         <script type="application/ld+json" is:inline set:html={JSON.stringify(item)} />
@@ -79,42 +122,95 @@ const sharedJsonLd: Record<string, unknown>[] = [
   <body>
     <header class="site-header">
       <div class="header-inner">
-        <a class="brand" href="/">PicoVoice LLMO</a>
+        <a class="brand" href={lang === "en" ? "/en/" : "/"}>
+          <span class="brand-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></span>
+          PicoVoice
+        </a>
         <div class="header-tools">
-          <nav>
-            <a href="/what-is-picovoice">{navLabels.what}</a>
-            <a href="/how-to-sell-vtuber-voice">{navLabels.how}</a>
+          <nav class="nav-desktop">
+            <a href="#how-it-works">{navLabels.howItWorks}</a>
+            <a href="#for-creators">{navLabels.forCreators}</a>
             <a href="/faq">{navLabels.faq}</a>
-            <a href="/picovoice-vs-booth">{navLabels.compare}</a>
-            <a href="/ai-guide">{navLabels.guide}</a>
           </nav>
           {
             alternatePath && (
               <div class="lang-switch" aria-label="language switch">
                 {lang === "ja" ? (
                   <>
-                    <strong>日本語</strong>
+                    <strong>JA</strong>
                     <span>/</span>
-                    <a href={alternatePath}>English</a>
+                    <a href={alternatePath}>EN</a>
                   </>
                 ) : (
                   <>
-                    <a href={alternatePath}>日本語</a>
+                    <a href={alternatePath}>JA</a>
                     <span>/</span>
-                    <strong>English</strong>
+                    <strong>EN</strong>
                   </>
                 )}
               </div>
             )
           }
+          <a class="header-cta" href={appStoreUrl} target="_blank" rel="noreferrer">{navLabels.cta}</a>
+          <button class="hamburger" aria-label="menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+          </button>
         </div>
       </div>
+      <nav class="nav-mobile" aria-hidden="true">
+        <a href="#how-it-works">{navLabels.howItWorks}</a>
+        <a href="#for-creators">{navLabels.forCreators}</a>
+        <a href="/faq">{navLabels.faq}</a>
+        <a class="nav-mobile-cta" href={appStoreUrl} target="_blank" rel="noreferrer">{navLabels.cta}</a>
+      </nav>
     </header>
+
     <main>
       <slot />
     </main>
+
     <footer>
-      <p>{footerText}</p>
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <span class="brand-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></span>
+          <strong>PicoVoice</strong>
+          <p>{lang === "en" ? "A VTuber voice marketplace for fans." : "推しの声を、今だけの特別に。"}</p>
+        </div>
+        <div class="footer-links">
+          <a href="/what-is-picovoice">{footerLinks.what}</a>
+          <a href="/how-to-sell-vtuber-voice">{footerLinks.howToSell}</a>
+          <a href="/picovoice-vs-booth">{footerLinks.compare}</a>
+          <a href="/ai-guide">{footerLinks.aiGuide}</a>
+        </div>
+        <p class="footer-copy">&copy; 2026 {footerLinks.copyright}</p>
+      </div>
     </footer>
+
+    <a class="sticky-cta" href={appStoreUrl} target="_blank" rel="noreferrer">
+      {lang === "en" ? "Download Free on App Store" : "App Store\u3067\u7121\u6599\u30C0\u30A6\u30F3\u30ED\u30FC\u30C9"}
+    </a>
+
+    <script is:inline>
+      (() => {
+        const btn = document.querySelector('.hamburger');
+        const nav = document.querySelector('.nav-mobile');
+        if (!btn || !nav) return;
+        btn.addEventListener('click', () => {
+          const open = btn.getAttribute('aria-expanded') === 'true';
+          btn.setAttribute('aria-expanded', String(!open));
+          nav.setAttribute('aria-hidden', String(open));
+          nav.classList.toggle('open', !open);
+          btn.classList.toggle('open', !open);
+        });
+        nav.querySelectorAll('a').forEach(a => {
+          a.addEventListener('click', () => {
+            btn.setAttribute('aria-expanded', 'false');
+            nav.setAttribute('aria-hidden', 'true');
+            nav.classList.remove('open');
+            btn.classList.remove('open');
+          });
+        });
+      })();
+    </script>
   </body>
 </html>
