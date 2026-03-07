@@ -1,0 +1,13 @@
+---
+interface Props {
+  primaryHref: string;
+  secondaryHref: string;
+}
+
+const { primaryHref, secondaryHref } = Astro.props;
+---
+
+<div class="dual-cta" role="group" aria-label="primary actions">
+  <a class="cta cta-coral" href={primaryHref} target="_blank" rel="noreferrer">聴いてみる</a>
+  <a class="cta cta-purple" href={secondaryHref} target="_blank" rel="noreferrer">投稿をはじめる</a>
+</div>

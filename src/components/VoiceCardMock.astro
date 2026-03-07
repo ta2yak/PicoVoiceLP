@@ -1,0 +1,28 @@
+---
+import WaveformCanvas from "./WaveformCanvas.astro";
+import CountdownBand from "./CountdownBand.astro";
+---
+
+<article class="voice-card-mock" aria-label="voice card preview">
+  <header>
+    <div class="creator">
+      <span class="avatar">A</span>
+      <div>
+        <p class="creator-name">Airi Nova</p>
+        <p class="posted">posted 2h ago</p>
+      </div>
+    </div>
+    <span class="status">LIVE</span>
+  </header>
+
+  <h3>「おはよう、今日も一緒にがんばろう」30秒ボイス</h3>
+
+  <WaveformCanvas urgent={false} />
+
+  <div class="price-row">
+    <span>STREAM Tier</span>
+    <span>EXPORT Tier</span>
+  </div>
+
+  <CountdownBand />
+</article>

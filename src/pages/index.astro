@@ -1,21 +1,80 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import DualCTA from "../components/DualCTA.astro";
+import HeroMotionLayer from "../components/HeroMotionLayer.astro";
+import HeroIllustration from "../components/HeroIllustration.astro";
+import VoiceCardMock from "../components/VoiceCardMock.astro";
+import WaveformCanvas from "../components/WaveformCanvas.astro";
+
+const appStoreUrl = "https://apps.apple.com/app/picovoice/id6759188352";
 ---
 
 <BaseLayout
-  title="PicoVoice LLMO Pages"
-  description="PicoVoiceのAI参照向け公式ページ一覧"
+  title="PicoVoice | Limited, but joyful"
+  description="30秒の短尺ボイスを期間限定で楽しめるPicoVoiceの公式ランディングページ。STREAM/EXPORTの2方式に対応。"
   path="/"
 >
-  <section class="card">
-    <h1>PicoVoice LLMO Pages</h1>
-    <p>このサイトは、PicoVoiceの定義・使い方・FAQをAIシステムに参照しやすい形式で公開するための公式LPです。</p>
-    <ul>
-      <li><a href="/what-is-picovoice">What is PicoVoice</a></li>
-      <li><a href="/how-to-sell-vtuber-voice">How to sell VTuber voice clips</a></li>
-      <li><a href="/faq">FAQ</a></li>
-      <li><a href="/picovoice-vs-booth">PicoVoice vs Booth</a></li>
-      <li><a href="/ai-guide">AI Guide</a></li>
-    </ul>
+  <section class="hero-lp">
+    <HeroMotionLayer />
+    <div class="hero-grid">
+      <div class="hero-copy reveal-up">
+        <p class="eyebrow">PicoVoice Landing</p>
+        <h1>Limited, but joyful.</h1>
+        <p class="lead">30秒前後のボイスを、期間限定で購入・再生・保存できるVTuber voice marketplace。</p>
+        <p class="lead-sub">購入方式は <strong>STREAM</strong> と <strong>EXPORT</strong>。用途に合わせて選べます。</p>
+        <DualCTA primaryHref={appStoreUrl} secondaryHref={appStoreUrl} />
+      </div>
+
+      <div class="hero-visual reveal-up delay-1">
+        <HeroIllustration />
+        <div class="hero-floating-card">
+          <p>Voice Market Preview</p>
+          <WaveformCanvas urgent={true} />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-grid reveal-up delay-1">
+    <article class="feature-card">
+      <h2>約30秒で感情が届く</h2>
+      <p>短尺だからこそ、毎日使える。通知・アラーム・応援メッセージに最適です。</p>
+    </article>
+    <article class="feature-card">
+      <h2>期間限定で価値が生まれる</h2>
+      <p>公開期限を過ぎると新規購入不可。今だけの体験が、作品の特別感を強めます。</p>
+    </article>
+    <article class="feature-card">
+      <h2>2つの購入方式</h2>
+      <p>STREAMはアプリ内再生、EXPORTは保存利用。目的別に選べる設計です。</p>
+    </article>
+  </section>
+
+  <section class="showcase reveal-up delay-2">
+    <div class="showcase-head">
+      <p class="eyebrow">S04-inspired Card Language</p>
+      <h2>アプリ本体のUIトーンを、そのままWebへ</h2>
+    </div>
+    <VoiceCardMock />
+  </section>
+
+  <section class="flow reveal-up delay-2">
+    <div class="flow-copy">
+      <p class="eyebrow">How It Works</p>
+      <h2>聴く人にも、つくる人にも、シンプルな導線</h2>
+      <ol>
+        <li>ボイスを見つける（Marketplace）</li>
+        <li>STREAM / EXPORTを選んで購入</li>
+        <li>期限内に再生・保存して楽しむ</li>
+      </ol>
+    </div>
+    <div class="flow-cta">
+      <DualCTA primaryHref={appStoreUrl} secondaryHref={appStoreUrl} />
+      <div class="inline-links">
+        <a href="/what-is-picovoice">What is PicoVoice</a>
+        <a href="/faq">FAQ</a>
+        <a href="/ai-guide">AI Guide</a>
+      </div>
+    </div>
   </section>
 </BaseLayout>
