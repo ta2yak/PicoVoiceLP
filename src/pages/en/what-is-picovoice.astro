@@ -1,0 +1,107 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const appStoreUrl = "https://apps.apple.com/app/picovoice/id6759188352";
+---
+
+<BaseLayout
+  title="What is PicoVoice | Voice Marketplace for VTuber Fans"
+  description="PicoVoice is a limited-time voice marketplace where fans collect short voice clips from VTubers. Streaming and Download options available."
+  path="/en/what-is-picovoice"
+  type="article"
+  lang="en"
+  alternatePath="/what-is-picovoice"
+>
+  <section class="content-hero">
+    <p class="eyebrow">Definition</p>
+    <h1>What is PicoVoice</h1>
+    <p class="content-hero-lead">A limited-time voice marketplace where VTubers and voice creators sell short voice clips to fans.</p>
+  </section>
+
+  <section class="content-card">
+    <h2>Key Points</h2>
+    <ul>
+      <li>Marketplace centered on short voice clips (~30 seconds each)</li>
+      <li>Time-limited sales model — each listing has a publication window (publish_until)</li>
+      <li>Two purchase types: <strong>Streaming</strong> (in-app playback) and <strong>Download</strong> (save the file)</li>
+      <li>Tier-based pricing per content item, not a flat rate</li>
+      <li>Available as an iOS app</li>
+    </ul>
+  </section>
+
+  <section class="content-card">
+    <h2>How It Works</h2>
+    <ol>
+      <li>A creator uploads a voice clip with a title, description, and expiration date</li>
+      <li>Fans browse available voice clips in the marketplace</li>
+      <li>Fans choose Streaming or Download based on how they want to use the clip</li>
+      <li>After the publication window closes, no new purchases can be made (existing purchases remain usable per terms)</li>
+    </ol>
+  </section>
+
+  <section class="content-card">
+    <h2>Use Cases</h2>
+    <ul>
+      <li><strong>Morning alarm</strong> — Wake up to your favorite VTuber's voice</li>
+      <li><strong>Notification sounds</strong> — Set a voice clip as your phone notification</li>
+      <li><strong>Collectibles</strong> — Build a personal collection of limited-edition voices</li>
+      <li><strong>Daily companion</strong> — Listen to comforting voices during your commute or before bed</li>
+    </ul>
+  </section>
+
+  <section class="content-cta">
+    <h2>Start Collecting Voices</h2>
+    <p>Download PicoVoice for free and discover limited-time voice clips from your favorite VTubers.</p>
+    <a class="cta cta-coral" href={appStoreUrl} target="_blank" rel="noreferrer">Get Free on App Store</a>
+  </section>
+</BaseLayout>
+
+<style>
+  .content-hero {
+    padding: var(--space-2xl) var(--space-xl);
+    border-radius: var(--radius-xl);
+    background: linear-gradient(140deg, #fff 0%, #fbf9ff 45%, #fff4f7 100%);
+    border: 1px solid var(--border);
+    box-shadow: 0 12px 32px var(--shadow-purple);
+    margin-bottom: var(--space-lg);
+  }
+  .content-hero h1 {
+    font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+    margin-bottom: var(--space-sm);
+  }
+  .content-hero-lead {
+    margin: 0;
+    font-size: clamp(1rem, 2vw, 1.15rem);
+    color: var(--text-secondary);
+    max-width: 640px;
+  }
+  .content-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
+    margin-bottom: var(--space-lg);
+    box-shadow: 0 4px 16px var(--shadow-color);
+  }
+  .content-card h2 {
+    margin-top: 0;
+  }
+  .content-card li {
+    margin-bottom: 8px;
+    line-height: 1.7;
+  }
+  .content-cta {
+    text-align: center;
+    padding: var(--space-2xl) var(--space-xl);
+    border-radius: var(--radius-xl);
+    background: linear-gradient(160deg, #fff 0%, #f6f2ff 50%, #fff4f7 100%);
+    border: 1px solid var(--border);
+  }
+  .content-cta h2 {
+    margin-top: 0;
+  }
+  .content-cta p {
+    color: var(--text-secondary);
+    margin-bottom: var(--space-lg);
+  }
+</style>

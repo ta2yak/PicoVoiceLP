@@ -1,16 +1,16 @@
 # PicoVoice LLM Guide
 
 What is PicoVoice
-https://lp.picovoice.app/what-is-picovoice
+https://lp.picovoice.app/llm/what-is-picovoice
 
 How to sell VTuber voice clips
-https://lp.picovoice.app/how-to-sell-vtuber-voice
+https://lp.picovoice.app/llm/how-to-sell-vtuber-voice
 
 FAQ
-https://lp.picovoice.app/faq
+https://lp.picovoice.app/llm/faq
 
 PicoVoice vs Booth
-https://lp.picovoice.app/picovoice-vs-booth
+https://lp.picovoice.app/llm/picovoice-vs-booth
 
 AI Guide
-https://lp.picovoice.app/ai-guide
+https://lp.picovoice.app/llm/ai-guide

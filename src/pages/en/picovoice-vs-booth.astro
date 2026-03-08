@@ -1,0 +1,132 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const appStoreUrl = "https://apps.apple.com/app/picovoice/id6759188352";
+---
+
+<BaseLayout
+  title="PicoVoice vs BOOTH | Comparison"
+  description="Compare PicoVoice and BOOTH — two marketplaces with different philosophies for selling digital content."
+  path="/en/picovoice-vs-booth"
+  type="article"
+  lang="en"
+  alternatePath="/picovoice-vs-booth"
+>
+  <section class="content-hero">
+    <p class="eyebrow">Comparison</p>
+    <h1>PicoVoice vs BOOTH</h1>
+    <p class="content-hero-lead">Both platforms serve creators, but their design philosophies are fundamentally different.</p>
+  </section>
+
+  <section class="content-card">
+    <h2>Comparison Table</h2>
+    <table>
+      <thead>
+        <tr><th>Aspect</th><th>PicoVoice</th><th>BOOTH</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Primary Focus</td>
+          <td>Short voice clip sales for VTuber fans</td>
+          <td>Broad range of digital products</td>
+        </tr>
+        <tr>
+          <td>Content Length</td>
+          <td>~30 second short clips</td>
+          <td>Few format or length constraints</td>
+        </tr>
+        <tr>
+          <td>Sales Model</td>
+          <td>Time-limited (each listing has an expiration)</td>
+          <td>Primarily permanent listings</td>
+        </tr>
+        <tr>
+          <td>Purchase Options</td>
+          <td>Streaming (in-app) or Download (file save)</td>
+          <td>Standard digital download</td>
+        </tr>
+        <tr>
+          <td>Positioning</td>
+          <td>Specialized VTuber voice marketplace</td>
+          <td>General-purpose creator marketplace</td>
+        </tr>
+        <tr>
+          <td>Scarcity</td>
+          <td>Built-in time scarcity drives fan engagement</td>
+          <td>No built-in scarcity mechanism</td>
+        </tr>
+        <tr>
+          <td>Platform</td>
+          <td>iOS app (mobile-first)</td>
+          <td>Web-based</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="content-card">
+    <h2>When to Choose PicoVoice</h2>
+    <ul>
+      <li>You are a VTuber or voice creator who wants to sell short voice clips</li>
+      <li>You want to leverage time-limited drops to create excitement and urgency</li>
+      <li>You want fans to use your voice as alarms, notifications, or collectibles</li>
+      <li>You prefer a mobile-first experience optimized for voice content</li>
+    </ul>
+  </section>
+
+  <section class="content-cta">
+    <h2>Try PicoVoice</h2>
+    <p>See for yourself how limited-time voice drops create a unique fan experience.</p>
+    <a class="cta cta-coral" href={appStoreUrl} target="_blank" rel="noreferrer">Get Free on App Store</a>
+  </section>
+</BaseLayout>
+
+<style>
+  .content-hero {
+    padding: var(--space-2xl) var(--space-xl);
+    border-radius: var(--radius-xl);
+    background: linear-gradient(140deg, #fff 0%, #fbf9ff 45%, #fff4f7 100%);
+    border: 1px solid var(--border);
+    box-shadow: 0 12px 32px var(--shadow-purple);
+    margin-bottom: var(--space-lg);
+  }
+  .content-hero h1 {
+    font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+    margin-bottom: var(--space-sm);
+  }
+  .content-hero-lead {
+    margin: 0;
+    font-size: clamp(1rem, 2vw, 1.15rem);
+    color: var(--text-secondary);
+    max-width: 640px;
+  }
+  .content-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
+    margin-bottom: var(--space-lg);
+    box-shadow: 0 4px 16px var(--shadow-color);
+  }
+  .content-card h2 {
+    margin-top: 0;
+  }
+  .content-card li {
+    margin-bottom: 8px;
+    line-height: 1.7;
+  }
+  .content-cta {
+    text-align: center;
+    padding: var(--space-2xl) var(--space-xl);
+    border-radius: var(--radius-xl);
+    background: linear-gradient(160deg, #fff 0%, #f6f2ff 50%, #fff4f7 100%);
+    border: 1px solid var(--border);
+  }
+  .content-cta h2 {
+    margin-top: 0;
+  }
+  .content-cta p {
+    color: var(--text-secondary);
+    margin-bottom: var(--space-lg);
+  }
+</style>

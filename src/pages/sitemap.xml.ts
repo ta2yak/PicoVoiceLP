@@ -3,11 +3,15 @@ import type { APIRoute } from "astro";
 const baseUrl = "https://lp.picovoice.app";
 const paths = [
   "/",
+  "/en/",
   "/what-is-picovoice",
-  "/how-to-sell-vtuber-voice",
+  "/en/what-is-picovoice",
   "/faq",
+  "/en/faq",
+  "/how-to-sell-vtuber-voice",
+  "/en/how-to-sell-vtuber-voice",
   "/picovoice-vs-booth",
-  "/ai-guide",
+  "/en/picovoice-vs-booth",
 ];
 
 export const GET: APIRoute = () => {

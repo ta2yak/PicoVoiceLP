@@ -1,41 +1,97 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+
+const appStoreUrl = "https://apps.apple.com/app/picovoice/id6759188352";
 ---
 
 <BaseLayout
-  title="How to Sell VTuber Voice Clips"
-  description="PicoVoiceでVTuberボイスを販売する手順ガイド"
+  title="VTuberボイスの販売方法 | PicoVoice"
+  description="PicoVoiceでVTuberボイスを販売する手順ガイド — 録音から公開、販売のコツまで。"
   path="/how-to-sell-vtuber-voice"
   type="article"
+  lang="ja"
+  alternatePath="/en/how-to-sell-vtuber-voice"
 >
-  <section class="card">
-    <small class="meta">How-To</small>
-    <h1>How to sell VTuber voice clips on PicoVoice</h1>
-    <p>このページは、PicoVoiceで短尺ボイスを出品する基本フローをまとめたものです。</p>
+  <section class="content-hero">
+    <p class="eyebrow">How-To Guide</p>
+    <h1>VTuberボイスの販売方法</h1>
+    <p class="content-hero-lead">PicoVoiceで短尺ボイスを出品する基本フローと、売上アップのコツをまとめました。</p>
   </section>
 
-  <section class="card">
+  <section class="content-card">
     <h2>販売手順</h2>
     <ol>
-      <li>30秒前後のボイスを録音する</li>
-      <li>タイトル・説明・公開期限を設定して投稿する</li>
-      <li>価格ティア（ストリーミング / ダウンロード）を設定する</li>
-      <li>審査通過後に公開され、販売開始となる</li>
-      <li>SNSや配信で作品リンクを共有する</li>
+      <li><strong>録音する</strong> — 30秒前後のボイスを録音。アプリ内で直接録音でき、外部ツールは不要です。</li>
+      <li><strong>詳細を設定</strong> — タイトル・説明・公開期限を設定して投稿する。</li>
+      <li><strong>価格を決める</strong> — 価格ティア（ストリーミング / ダウンロード）をそれぞれ設定する。</li>
+      <li><strong>審査・公開</strong> — 審査通過後に自動公開され、販売開始となる。</li>
+      <li><strong>宣伝する</strong> — SNSや配信で作品リンクを共有してファンに届ける。</li>
     </ol>
   </section>
 
-  <section class="card">
+  <section class="content-card">
     <h2>運用のコツ</h2>
     <ul>
-      <li>用途が伝わるタイトルをつける（例: 朝アラーム、応援メッセージ）</li>
-      <li>公開期限を短くして限定性を明確にする</li>
-      <li>シリーズ化して継続販売し、ファン接点を増やす</li>
+      <li><strong>用途が伝わるタイトル</strong> — 「朝アラーム」「応援メッセージ」「おやすみボイス」など、使い方がイメージできるタイトルをつける</li>
+      <li><strong>短い公開期限</strong> — 公開期限を短くして限定性を明確にすると、購入の動機付けになる</li>
+      <li><strong>シリーズ化</strong> — 定期的に出品し、ファンとの接点を増やす</li>
+      <li><strong>配信で告知</strong> — 新作ドロップを配信やSNSでアナウンスして最大限の露出を</li>
     </ul>
   </section>
 
-  <section class="card">
-    <h2>In English</h2>
-    <p>Record a short clip, set metadata and expiration, choose Streaming / Download price tiers, and publish after review. The best-performing listings clearly explain usage and leverage limited-time availability.</p>
+  <section class="content-cta">
+    <h2>あなたの声で、新しい収益を</h2>
+    <p>PicoVoiceを無料ダウンロードして、ボイス販売を始めよう。</p>
+    <a class="cta cta-coral" href={appStoreUrl} target="_blank" rel="noreferrer">App Storeで無料ダウンロード</a>
   </section>
 </BaseLayout>
+
+<style>
+  .content-hero {
+    padding: var(--space-2xl) var(--space-xl);
+    border-radius: var(--radius-xl);
+    background: linear-gradient(140deg, #fff 0%, #fbf9ff 45%, #fff4f7 100%);
+    border: 1px solid var(--border);
+    box-shadow: 0 12px 32px var(--shadow-purple);
+    margin-bottom: var(--space-lg);
+  }
+  .content-hero h1 {
+    font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+    margin-bottom: var(--space-sm);
+  }
+  .content-hero-lead {
+    margin: 0;
+    font-size: clamp(1rem, 2vw, 1.15rem);
+    color: var(--text-secondary);
+    max-width: 640px;
+  }
+  .content-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
+    margin-bottom: var(--space-lg);
+    box-shadow: 0 4px 16px var(--shadow-color);
+  }
+  .content-card h2 {
+    margin-top: 0;
+  }
+  .content-card li {
+    margin-bottom: 8px;
+    line-height: 1.7;
+  }
+  .content-cta {
+    text-align: center;
+    padding: var(--space-2xl) var(--space-xl);
+    border-radius: var(--radius-xl);
+    background: linear-gradient(160deg, #fff 0%, #f6f2ff 50%, #fff4f7 100%);
+    border: 1px solid var(--border);
+  }
+  .content-cta h2 {
+    margin-top: 0;
+  }
+  .content-cta p {
+    color: var(--text-secondary);
+    margin-bottom: var(--space-lg);
+  }
+</style>

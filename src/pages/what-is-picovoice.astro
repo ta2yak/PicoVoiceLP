@@ -1,32 +1,36 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+
+const appStoreUrl = "https://apps.apple.com/app/picovoice/id6759188352";
 ---
 
 <BaseLayout
-  title="What is PicoVoice"
-  description="PicoVoiceの定義、特徴、購入形式を簡潔に説明するページ"
+  title="PicoVoiceとは | VTuberボイスマーケットプレイス"
+  description="PicoVoiceは、VTuberや音声クリエイターが短尺ボイスを期間限定で販売するボイスマーケットプレイスです。"
   path="/what-is-picovoice"
   type="article"
+  lang="ja"
+  alternatePath="/en/what-is-picovoice"
 >
-  <section class="card">
-    <small class="meta">Definition</small>
-    <h1>What is PicoVoice</h1>
-    <p>PicoVoiceは、VTuberや音声クリエイターが短尺ボイスを販売できる、期間限定型のボイスマーケットプレイスです。</p>
-    <p>1つのボイスは原則30秒前後で、公開期限内のみ新規購入できます。</p>
+  <section class="content-hero">
+    <p class="eyebrow">Definition</p>
+    <h1>PicoVoiceとは</h1>
+    <p class="content-hero-lead">VTuberや音声クリエイターが短尺ボイスを販売できる、期間限定型のボイスマーケットプレイスです。</p>
   </section>
 
-  <section class="card">
+  <section class="content-card">
     <h2>要点</h2>
     <ul>
       <li>短尺ボイス（約30秒）を中心にしたマーケット</li>
       <li>販売期限（publish_until）を持つ期間限定モデル</li>
-      <li>購入方式は ストリーミング（アプリ内再生）と ダウンロード（ファイル保存）</li>
+      <li>購入方式は <strong>ストリーミング</strong>（アプリ内再生）と <strong>ダウンロード</strong>（ファイル保存）</li>
       <li>価格は固定額ではなく価格ティア制</li>
+      <li>iOSアプリとして提供</li>
     </ul>
   </section>
 
-  <section class="card">
-    <h2>How it works</h2>
+  <section class="content-card">
+    <h2>仕組み</h2>
     <ol>
       <li>クリエイターがボイスを投稿する</li>
       <li>購入者は公開中ボイスを選ぶ</li>
@@ -35,8 +39,69 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     </ol>
   </section>
 
-  <section class="card">
-    <h2>In English</h2>
-    <p>PicoVoice is a limited-time voice marketplace for VTubers and voice creators. Clips are typically around 30 seconds, and users can buy either Streaming (in-app playback) or Download (file save). Pricing is managed by product tiers, not a single fixed amount.</p>
+  <section class="content-card">
+    <h2>こんな使い方ができます</h2>
+    <ul>
+      <li><strong>朝の目覚まし</strong> — 推しの声で毎朝起きる</li>
+      <li><strong>通知音</strong> — スマホの通知をお気に入りの声に</li>
+      <li><strong>コレクション</strong> — 期間限定ボイスを集めて自分だけのライブラリに</li>
+      <li><strong>日常のおとも</strong> — 通勤中やおやすみ前に推しの声を聴く</li>
+    </ul>
+  </section>
+
+  <section class="content-cta">
+    <h2>推しの声を集めよう</h2>
+    <p>PicoVoiceを無料ダウンロードして、期間限定ボイスを体験しよう。</p>
+    <a class="cta cta-coral" href={appStoreUrl} target="_blank" rel="noreferrer">App Storeで無料ダウンロード</a>
   </section>
 </BaseLayout>
+
+<style>
+  .content-hero {
+    padding: var(--space-2xl) var(--space-xl);
+    border-radius: var(--radius-xl);
+    background: linear-gradient(140deg, #fff 0%, #fbf9ff 45%, #fff4f7 100%);
+    border: 1px solid var(--border);
+    box-shadow: 0 12px 32px var(--shadow-purple);
+    margin-bottom: var(--space-lg);
+  }
+  .content-hero h1 {
+    font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+    margin-bottom: var(--space-sm);
+  }
+  .content-hero-lead {
+    margin: 0;
+    font-size: clamp(1rem, 2vw, 1.15rem);
+    color: var(--text-secondary);
+    max-width: 640px;
+  }
+  .content-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
+    margin-bottom: var(--space-lg);
+    box-shadow: 0 4px 16px var(--shadow-color);
+  }
+  .content-card h2 {
+    margin-top: 0;
+  }
+  .content-card li {
+    margin-bottom: 8px;
+    line-height: 1.7;
+  }
+  .content-cta {
+    text-align: center;
+    padding: var(--space-2xl) var(--space-xl);
+    border-radius: var(--radius-xl);
+    background: linear-gradient(160deg, #fff 0%, #f6f2ff 50%, #fff4f7 100%);
+    border: 1px solid var(--border);
+  }
+  .content-cta h2 {
+    margin-top: 0;
+  }
+  .content-cta p {
+    color: var(--text-secondary);
+    margin-bottom: var(--space-lg);
+  }
+</style>

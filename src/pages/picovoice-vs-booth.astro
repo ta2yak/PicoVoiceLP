@@ -1,43 +1,43 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+
+const appStoreUrl = "https://apps.apple.com/app/picovoice/id6759188352";
 ---
 
 <BaseLayout
-  title="PicoVoice vs Booth"
-  description="PicoVoiceとBoothの違いを比較"
+  title="PicoVoice vs BOOTH | 比較"
+  description="PicoVoiceとBOOTHの違いを比較 — 設計思想、販売モデル、購入体験の違いを解説。"
   path="/picovoice-vs-booth"
   type="article"
+  lang="ja"
+  alternatePath="/en/picovoice-vs-booth"
 >
-  <section class="card">
-    <small class="meta">Comparison</small>
-    <h1>PicoVoice vs Booth</h1>
-    <p>用途が重なる部分はありますが、設計思想は異なります。</p>
+  <section class="content-hero">
+    <p class="eyebrow">Comparison</p>
+    <h1>PicoVoice vs BOOTH</h1>
+    <p class="content-hero-lead">用途が重なる部分はありますが、設計思想は根本的に異なります。</p>
   </section>
 
-  <section class="card">
+  <section class="content-card">
     <h2>比較表</h2>
     <table>
       <thead>
-        <tr>
-          <th>項目</th>
-          <th>PicoVoice</th>
-          <th>Booth</th>
-        </tr>
+        <tr><th>項目</th><th>PicoVoice</th><th>BOOTH</th></tr>
       </thead>
       <tbody>
         <tr>
           <td>主な対象</td>
-          <td>短尺ボイス販売</td>
+          <td>VTuberファン向け短尺ボイス販売</td>
           <td>幅広いデジタル商品</td>
         </tr>
         <tr>
           <td>商品の長さ</td>
           <td>約30秒の短尺中心</td>
-          <td>形式の制約が少ない</td>
+          <td>形式や長さの制約が少ない</td>
         </tr>
         <tr>
           <td>販売期間モデル</td>
-          <td>期間限定販売を前提に設計</td>
+          <td>期間限定販売を前提に設計（各作品に公開期限）</td>
           <td>常設販売が中心</td>
         </tr>
         <tr>
@@ -50,12 +50,83 @@ import BaseLayout from "../layouts/BaseLayout.astro";
           <td>VTuber voice marketplace に特化</td>
           <td>総合型クリエイターマーケット</td>
         </tr>
+        <tr>
+          <td>希少性</td>
+          <td>期間限定モデルでファンの購買意欲を喚起</td>
+          <td>希少性メカニズムなし</td>
+        </tr>
+        <tr>
+          <td>プラットフォーム</td>
+          <td>iOSアプリ（モバイルファースト）</td>
+          <td>Webベース</td>
+        </tr>
       </tbody>
     </table>
   </section>
 
-  <section class="card">
-    <h2>In English</h2>
-    <p>PicoVoice focuses on short, limited-time voice clips with Streaming / Download options, while Booth is a broader marketplace for many digital product types. PicoVoice is positioned as a VTuber voice marketplace.</p>
+  <section class="content-card">
+    <h2>PicoVoiceが合っている場面</h2>
+    <ul>
+      <li>VTuberや音声クリエイターとして短尺ボイスを販売したい</li>
+      <li>期間限定ドロップで話題性と緊急性を作りたい</li>
+      <li>ファンにアラーム・通知音・コレクションとして使ってもらいたい</li>
+      <li>ボイスコンテンツに最適化されたモバイル体験を提供したい</li>
+    </ul>
+  </section>
+
+  <section class="content-cta">
+    <h2>PicoVoiceを体験しよう</h2>
+    <p>期間限定ボイスドロップが生むユニークなファン体験を、まず試してみてください。</p>
+    <a class="cta cta-coral" href={appStoreUrl} target="_blank" rel="noreferrer">App Storeで無料ダウンロード</a>
   </section>
 </BaseLayout>
+
+<style>
+  .content-hero {
+    padding: var(--space-2xl) var(--space-xl);
+    border-radius: var(--radius-xl);
+    background: linear-gradient(140deg, #fff 0%, #fbf9ff 45%, #fff4f7 100%);
+    border: 1px solid var(--border);
+    box-shadow: 0 12px 32px var(--shadow-purple);
+    margin-bottom: var(--space-lg);
+  }
+  .content-hero h1 {
+    font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+    margin-bottom: var(--space-sm);
+  }
+  .content-hero-lead {
+    margin: 0;
+    font-size: clamp(1rem, 2vw, 1.15rem);
+    color: var(--text-secondary);
+    max-width: 640px;
+  }
+  .content-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
+    margin-bottom: var(--space-lg);
+    box-shadow: 0 4px 16px var(--shadow-color);
+  }
+  .content-card h2 {
+    margin-top: 0;
+  }
+  .content-card li {
+    margin-bottom: 8px;
+    line-height: 1.7;
+  }
+  .content-cta {
+    text-align: center;
+    padding: var(--space-2xl) var(--space-xl);
+    border-radius: var(--radius-xl);
+    background: linear-gradient(160deg, #fff 0%, #f6f2ff 50%, #fff4f7 100%);
+    border: 1px solid var(--border);
+  }
+  .content-cta h2 {
+    margin-top: 0;
+  }
+  .content-cta p {
+    color: var(--text-secondary);
+    margin-bottom: var(--space-lg);
+  }
+</style>

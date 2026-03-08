@@ -42,17 +42,17 @@ const navLabels =
 const footerLinks =
   lang === "en"
     ? {
-        what: "What is PicoVoice",
-        howToSell: "How to Sell",
-        compare: "Compare with BOOTH",
-        aiGuide: "AI Guide",
+        what: { label: "What is PicoVoice", href: "/en/what-is-picovoice" },
+        howToSell: { label: "How to Sell", href: "/en/how-to-sell-vtuber-voice" },
+        compare: { label: "Compare with BOOTH", href: "/en/picovoice-vs-booth" },
+        faq: { label: "FAQ", href: "/en/faq" },
         copyright: "PicoVoice",
       }
     : {
-        what: "PicoVoiceとは",
-        howToSell: "販売ガイド",
-        compare: "BOOTHとの比較",
-        aiGuide: "AI Guide",
+        what: { label: "PicoVoiceとは", href: "/what-is-picovoice" },
+        howToSell: { label: "販売ガイド", href: "/how-to-sell-vtuber-voice" },
+        compare: { label: "BOOTHとの比較", href: "/picovoice-vs-booth" },
+        faq: { label: "よくある質問", href: "/faq" },
         copyright: "PicoVoice",
       };
 
@@ -130,7 +130,7 @@ const appStoreUrl = "https://apps.apple.com/app/picovoice/id6759188352";
           <nav class="nav-desktop">
             <a href="#how-it-works">{navLabels.howItWorks}</a>
             <a href="#for-creators">{navLabels.forCreators}</a>
-            <a href="/faq">{navLabels.faq}</a>
+            <a href={lang === "en" ? "/en/faq" : "/faq"}>{navLabels.faq}</a>
           </nav>
           {
             alternatePath && (
@@ -160,7 +160,7 @@ const appStoreUrl = "https://apps.apple.com/app/picovoice/id6759188352";
       <nav class="nav-mobile" aria-hidden="true">
         <a href="#how-it-works">{navLabels.howItWorks}</a>
         <a href="#for-creators">{navLabels.forCreators}</a>
-        <a href="/faq">{navLabels.faq}</a>
+        <a href={lang === "en" ? "/en/faq" : "/faq"}>{navLabels.faq}</a>
         <a class="nav-mobile-cta" href={appStoreUrl} target="_blank" rel="noreferrer">{navLabels.cta}</a>
       </nav>
     </header>
@@ -177,10 +177,10 @@ const appStoreUrl = "https://apps.apple.com/app/picovoice/id6759188352";
           <p>{lang === "en" ? "A VTuber voice marketplace for fans." : "推しの声を、今だけの特別に。"}</p>
         </div>
         <div class="footer-links">
-          <a href="/what-is-picovoice">{footerLinks.what}</a>
-          <a href="/how-to-sell-vtuber-voice">{footerLinks.howToSell}</a>
-          <a href="/picovoice-vs-booth">{footerLinks.compare}</a>
-          <a href="/ai-guide">{footerLinks.aiGuide}</a>
+          <a href={footerLinks.what.href}>{footerLinks.what.label}</a>
+          <a href={footerLinks.howToSell.href}>{footerLinks.howToSell.label}</a>
+          <a href={footerLinks.compare.href}>{footerLinks.compare.label}</a>
+          <a href={footerLinks.faq.href}>{footerLinks.faq.label}</a>
         </div>
         <p class="footer-copy">&copy; 2026 {footerLinks.copyright}</p>
       </div>

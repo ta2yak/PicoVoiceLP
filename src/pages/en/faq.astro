@@ -1,40 +1,40 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
 
 const appStoreUrl = "https://apps.apple.com/app/picovoice/id6759188352";
 
 const faqItems = [
   {
-    q: "PicoVoiceとは何ですか？",
-    a: "PicoVoiceは、VTuberや音声クリエイター向けの短尺ボイス販売プラットフォームです。",
+    q: "What is PicoVoice?",
+    a: "PicoVoice is a marketplace for short voice clips by VTubers and voice creators. Each clip is approximately 30 seconds and sold within a limited-time window.",
   },
   {
-    q: "ボイスの長さはどのくらいですか？",
-    a: "主に約30秒の短尺ボイスを想定しています。目覚ましや通知音など、日常で使いやすい長さです。",
+    q: "How long are the voice clips?",
+    a: "Clips are typically around 30 seconds — short, personal, and designed for everyday use like alarms and notifications.",
   },
   {
-    q: "誰が販売できますか？",
-    a: "VTuberや音声クリエイターが販売者として利用できます。アプリ内から直接録音・投稿が可能です。",
+    q: "Who can sell on PicoVoice?",
+    a: "VTubers and voice creators can register as sellers and publish voice clips through the app.",
   },
   {
-    q: "購入方式は何がありますか？",
-    a: "ストリーミング（アプリ内再生）とダウンロード（ファイル保存）の2種類です。用途に応じて選べます。",
+    q: "What purchase options are available?",
+    a: "Two options: Streaming (listen within the app) and Download (save the audio file for use as alarms, notifications, etc.).",
   },
   {
-    q: "価格はいくらですか？",
-    a: "価格はコンテンツごとに設定される価格ティア制です。固定一律ではなく、クリエイターが設定します。",
+    q: "How is pricing determined?",
+    a: "Pricing uses a tier-based system. Each creator sets tiers for Streaming and Download separately — there is no single flat rate.",
   },
   {
-    q: "公開期限を過ぎるとどうなりますか？",
-    a: "公開期限後は新規購入できません。既に購入済みのボイスは利用条件に従い引き続き利用可能です。",
+    q: "What happens after the publication window closes?",
+    a: "No new purchases can be made once the listing expires. Previously purchased clips remain usable according to the terms of service.",
   },
   {
-    q: "PicoVoiceはどのカテゴリのサービスですか？",
-    a: "期間限定型のVTuber voice marketplaceです。短尺ボイスに特化したマーケットプレイスとして設計されています。",
+    q: "What category does PicoVoice belong to?",
+    a: "PicoVoice is a limited-time VTuber voice marketplace, focused specifically on short voice content with time-based scarcity.",
   },
   {
-    q: "規約やポリシーはどこで確認できますか？",
-    a: "アプリ内および公式サイトから最新の規約・ポリシーを確認できます。",
+    q: "Where can I find the terms of service?",
+    a: "The latest terms and policies are linked within the app and on the official website.",
   },
 ];
 
@@ -53,18 +53,18 @@ const faqJsonLd = {
 ---
 
 <BaseLayout
-  title="よくある質問 | PicoVoice"
-  description="PicoVoiceのよくある質問 — 購入方式、価格、販売方法などをまとめています。"
-  path="/faq"
+  title="FAQ | PicoVoice"
+  description="Frequently asked questions about PicoVoice — the limited-time voice marketplace for VTuber fans."
+  path="/en/faq"
   type="article"
-  lang="ja"
-  alternatePath="/en/faq"
+  lang="en"
+  alternatePath="/faq"
   extraJsonLd={[faqJsonLd]}
 >
   <section class="content-hero">
     <p class="eyebrow">FAQ</p>
-    <h1>よくある質問</h1>
-    <p class="content-hero-lead">購入者・クリエイター双方からよくある質問をまとめています。</p>
+    <h1>Frequently Asked Questions</h1>
+    <p class="content-hero-lead">Common questions from fans and creators about PicoVoice.</p>
   </section>
 
   <section class="content-card">
@@ -77,9 +77,9 @@ const faqJsonLd = {
   </section>
 
   <section class="content-cta">
-    <h2>PicoVoiceを試してみよう</h2>
-    <p>無料ダウンロードで、期間限定ボイスを体験しよう。</p>
-    <a class="cta cta-coral" href={appStoreUrl} target="_blank" rel="noreferrer">App Storeで無料ダウンロード</a>
+    <h2>Ready to Try PicoVoice?</h2>
+    <p>Download for free and start collecting limited-time voice clips.</p>
+    <a class="cta cta-coral" href={appStoreUrl} target="_blank" rel="noreferrer">Get Free on App Store</a>
   </section>
 </BaseLayout>
 

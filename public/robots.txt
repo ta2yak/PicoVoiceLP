@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /llm/
 
 Sitemap: https://lp.picovoice.app/sitemap.xml

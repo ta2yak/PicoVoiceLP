@@ -1,0 +1,97 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const appStoreUrl = "https://apps.apple.com/app/picovoice/id6759188352";
+---
+
+<BaseLayout
+  title="How to Sell VTuber Voice Clips | PicoVoice"
+  description="A step-by-step guide to selling short voice clips on PicoVoice — record, set pricing, publish, and earn."
+  path="/en/how-to-sell-vtuber-voice"
+  type="article"
+  lang="en"
+  alternatePath="/how-to-sell-vtuber-voice"
+>
+  <section class="content-hero">
+    <p class="eyebrow">How-To Guide</p>
+    <h1>How to Sell VTuber Voice Clips</h1>
+    <p class="content-hero-lead">A complete guide to publishing and selling short voice clips on PicoVoice.</p>
+  </section>
+
+  <section class="content-card">
+    <h2>Selling Steps</h2>
+    <ol>
+      <li><strong>Record</strong> — Create a voice clip of approximately 30 seconds. You can record directly in the app — no external tools required.</li>
+      <li><strong>Set Details</strong> — Add a title, description, and publication deadline (expiration date).</li>
+      <li><strong>Configure Pricing</strong> — Set price tiers for Streaming (in-app playback) and Download (file save) separately.</li>
+      <li><strong>Submit for Review</strong> — After passing review, your listing goes live automatically.</li>
+      <li><strong>Promote</strong> — Share your listing link on social media or during livestreams to reach fans.</li>
+    </ol>
+  </section>
+
+  <section class="content-card">
+    <h2>Tips for Success</h2>
+    <ul>
+      <li><strong>Descriptive titles</strong> — Use titles that clearly convey the intended use (e.g., "Morning Alarm", "Cheer Message", "Goodnight Voice")</li>
+      <li><strong>Short publication windows</strong> — Shorter deadlines create urgency and emphasize scarcity, which drives purchases</li>
+      <li><strong>Create a series</strong> — Publishing regularly builds ongoing fan engagement and repeat purchases</li>
+      <li><strong>Leverage your community</strong> — Announce new drops during streams or on social media for maximum visibility</li>
+    </ul>
+  </section>
+
+  <section class="content-cta">
+    <h2>Start Selling Your Voice</h2>
+    <p>Download PicoVoice and start monetizing your voice clips today.</p>
+    <a class="cta cta-coral" href={appStoreUrl} target="_blank" rel="noreferrer">Get Free on App Store</a>
+  </section>
+</BaseLayout>
+
+<style>
+  .content-hero {
+    padding: var(--space-2xl) var(--space-xl);
+    border-radius: var(--radius-xl);
+    background: linear-gradient(140deg, #fff 0%, #fbf9ff 45%, #fff4f7 100%);
+    border: 1px solid var(--border);
+    box-shadow: 0 12px 32px var(--shadow-purple);
+    margin-bottom: var(--space-lg);
+  }
+  .content-hero h1 {
+    font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+    margin-bottom: var(--space-sm);
+  }
+  .content-hero-lead {
+    margin: 0;
+    font-size: clamp(1rem, 2vw, 1.15rem);
+    color: var(--text-secondary);
+    max-width: 640px;
+  }
+  .content-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
+    margin-bottom: var(--space-lg);
+    box-shadow: 0 4px 16px var(--shadow-color);
+  }
+  .content-card h2 {
+    margin-top: 0;
+  }
+  .content-card li {
+    margin-bottom: 8px;
+    line-height: 1.7;
+  }
+  .content-cta {
+    text-align: center;
+    padding: var(--space-2xl) var(--space-xl);
+    border-radius: var(--radius-xl);
+    background: linear-gradient(160deg, #fff 0%, #f6f2ff 50%, #fff4f7 100%);
+    border: 1px solid var(--border);
+  }
+  .content-cta h2 {
+    margin-top: 0;
+  }
+  .content-cta p {
+    color: var(--text-secondary);
+    margin-bottom: var(--space-lg);
+  }
+</style>
