@@ -3,7 +3,6 @@ import DualCTA from "./DualCTA.astro";
 import HeroMotionLayer from "./HeroMotionLayer.astro";
 import HeroIllustration from "./HeroIllustration.astro";
 import VoiceCardMock from "./VoiceCardMock.astro";
-import WaveformCanvas from "./WaveformCanvas.astro";
 
 interface Props {
   lang: "ja" | "en";
@@ -78,7 +77,7 @@ const t = isEn
       creatorLead: "Record a short voice, set a time limit, and publish. PicoVoice handles the rest — payments, delivery, and fan experience.",
       creatorFeatures: [
         { icon: icons.mic, h: "Easy recording", p: "Record directly in the app. No external tools needed." },
-        { icon: icons.timer, h: "Timed exclusivity", p: "Set how long each voice is available. Create urgency naturally." },
+        { icon: icons.timer, h: "Timed exclusivity", p: "Every voice expires after 1 week. Scarcity drives fan engagement." },
         { icon: icons.coins, h: "Instant monetization", p: "Earn from each purchase. Streaming and Download options for fans." },
       ],
       creatorCta: "Start as Creator",
@@ -140,15 +139,15 @@ const t = isEn
 
       creatorEyebrow: "VTuber・クリエイターの方へ",
       creatorTitle: "あなたの声で、新しい収益を",
-      creatorLead: "短尺ボイスを録音して、期間を設定して公開するだけ。決済・配信・ファン体験はPicoVoiceがすべてサポート。",
+      creatorLead: "短尺ボイスを録音して公開するだけ。1週間の限定販売で、決済・配信・ファン体験はPicoVoiceがすべてサポート。",
       creatorFeatures: [
         { icon: icons.mic, h: "かんたん録音", p: "アプリ内で直接録音。外部ツール不要でスマホだけで完結。" },
-        { icon: icons.timer, h: "期間限定の熱量", p: "公開期間を自分で設定。自然な限定感がファンの購入意欲を引き出す。" },
+        { icon: icons.timer, h: "1週間限定の熱量", p: "公開から1週間で販売終了。自然な限定感が購入意欲を引き出す。" },
         { icon: icons.coins, h: "すぐに収益化", p: "購入のたびに報酬が発生。ストリーミングとダウンロード両方に対応。" },
       ],
       creatorCta: "クリエイターとして始める",
 
-      finalTitle: "推しの声を、ポケットに。",
+      finalTitle: "大好きな声を、いつもそばに。",
       finalSub: "PicoVoiceを無料ダウンロードして、コレクションを始めよう。",
       finalCta: "App Storeで無料ダウンロード",
 
@@ -178,11 +177,7 @@ const t = isEn
     </div>
     <div class="hero-visual reveal-up delay-1">
       <div class="hero-visual-shell">
-        <HeroIllustration />
-        <div class="hero-floating-card">
-          <p>{t.preview}</p>
-          <WaveformCanvas urgent={true} />
-        </div>
+        <HeroIllustration previewLabel={t.preview} />
       </div>
     </div>
   </div>

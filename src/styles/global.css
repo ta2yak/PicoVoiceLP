@@ -26,10 +26,10 @@
   --space-md: 16px;
   --space-lg: 24px;
   --space-xl: 32px;
-  --space-2xl: 48px;
-  --space-3xl: 64px;
+  --space-2xl: 64px;
+  --space-3xl: 96px;
   --max-w: 1120px;
-  --gutter: 16px;
+  --gutter: 20px;
   --transition: 0.3s cubic-bezier(0.2, 0.7, 0.2, 1);
 }
 
@@ -76,7 +76,7 @@ img {
 main {
   width: min(var(--max-w), 100% - var(--gutter) * 2);
   margin: 0 auto;
-  padding: var(--space-xl) 0 100px;
+  padding: var(--space-2xl) 0 120px;
 }
 
 /* ===== HEADER ===== */
@@ -110,20 +110,11 @@ header.site-header {
   color: var(--text-primary);
 }
 
-.brand-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+.brand-icon-img {
   width: 28px;
   height: 28px;
   border-radius: 8px;
-  background: linear-gradient(135deg, var(--purple), var(--purple-light));
-  color: #fff;
-}
-
-.brand-icon svg {
-  width: 16px;
-  height: 16px;
+  flex-shrink: 0;
 }
 
 .header-tools {
@@ -310,12 +301,12 @@ th {
 
 .section-title {
   text-align: center;
-  margin-bottom: var(--space-xl);
+  margin-bottom: var(--space-2xl);
 }
 
 /* ===== EYEBROW ===== */
 .eyebrow {
-  margin: 0 0 var(--space-sm);
+  margin: 0 0 var(--space-md);
   color: var(--purple-chip);
   font-size: 0.82rem;
   font-weight: 700;
@@ -329,7 +320,7 @@ th {
   overflow: hidden;
   border: 1px solid var(--border);
   border-radius: var(--radius-xl);
-  padding: var(--space-2xl) var(--space-xl);
+  padding: var(--space-3xl) var(--space-2xl);
   background: linear-gradient(140deg, #fff 0%, #fbf9ff 45%, #fff4f7 100%);
   box-shadow: 0 22px 54px var(--shadow-purple);
 }
@@ -438,41 +429,77 @@ th {
   width: min(480px, 100%);
   margin-left: auto;
   position: relative;
-  padding-bottom: 56px;
 }
 
-.hero-illustration {
+/* ===== HERO CARD ===== */
+.hero-card {
   position: relative;
   z-index: 2;
-}
-
-.hero-illustration svg {
-  width: 100%;
-  max-width: 440px;
-  height: auto;
-  display: block;
-  margin: 0 auto;
-  filter: drop-shadow(0 20px 28px rgb(122 90 248 / 0.18));
-}
-
-.hero-floating-card {
-  position: absolute;
-  right: 8px;
-  bottom: 0;
-  z-index: 3;
-  width: min(332px, 88%);
-  background: rgb(255 255 255 / 0.94);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  background: #fff;
   border: 1px solid var(--border);
-  border-radius: 18px;
-  padding: 10px 14px;
-  box-shadow: 0 12px 26px var(--shadow-purple);
+  box-shadow: 0 22px 44px var(--shadow-purple);
 }
 
-.hero-floating-card p {
-  margin: 0 0 6px;
+.hero-card-image {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: linear-gradient(160deg, #f6f2ff, #fff4f7);
+}
+
+.hero-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 70% center;
+  display: block;
+}
+
+.hero-card-player {
+  padding: 12px 16px;
+  background: rgb(255 255 255 / 0.96);
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.hero-card-player-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.hero-app-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  flex-shrink: 0;
+}
+
+.hero-card-player-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.hero-card-player-label {
   font-size: 0.76rem;
-  color: var(--purple-chip);
   font-weight: 700;
+  color: var(--purple-chip);
+  letter-spacing: 0.02em;
+}
+
+.hero-card-player-app {
+  font-size: 0.72rem;
+  color: var(--text-tertiary);
+  font-weight: 500;
+}
+
+.hero-card-waveform {
+  margin: 0 -2px;
 }
 
 /* ===== HERO MOTION ===== */
@@ -528,7 +555,7 @@ th {
 
 /* ===== SOCIAL PROOF ===== */
 .social-proof {
-  margin-top: var(--space-xl);
+  margin-top: var(--space-2xl);
   padding: var(--space-lg) var(--space-xl);
   border-radius: var(--radius-lg);
   background: #fff;
@@ -575,7 +602,7 @@ th {
 
 /* ===== SCENES ===== */
 .scenes {
-  margin-top: var(--space-2xl);
+  margin-top: var(--space-3xl);
 }
 
 .scenes-grid {
@@ -586,7 +613,7 @@ th {
 }
 
 .scene-card {
-  padding: var(--space-lg) var(--space-md);
+  padding: var(--space-xl) var(--space-lg);
   border-radius: var(--radius-lg);
   background: linear-gradient(155deg, #fff, #faf7ff);
   border: 1px solid var(--border);
@@ -630,7 +657,7 @@ th {
 
 /* ===== FEATURES (Why PicoVoice) ===== */
 .features-section {
-  margin-top: var(--space-2xl);
+  margin-top: var(--space-3xl);
 }
 
 .section-grid {
@@ -641,7 +668,7 @@ th {
 }
 
 .feature-card {
-  padding: var(--space-lg) var(--space-md);
+  padding: var(--space-xl) var(--space-lg);
   border-radius: var(--radius-lg);
   border: 1px solid var(--border);
   background: linear-gradient(145deg, #fff, #f8f5ff);
@@ -684,7 +711,7 @@ th {
 
 /* ===== SHOWCASE (Limited Drops) ===== */
 .showcase {
-  margin-top: var(--space-2xl);
+  margin-top: var(--space-3xl);
 }
 
 .showcase-split {
@@ -855,8 +882,8 @@ th {
 
 /* ===== HOW IT WORKS ===== */
 .how-section {
-  margin-top: var(--space-2xl);
-  padding: var(--space-2xl) var(--space-xl);
+  margin-top: var(--space-3xl);
+  padding: var(--space-3xl) var(--space-2xl);
   border-radius: var(--radius-xl);
   background: linear-gradient(160deg, #fff, #faf7ff);
   border: 1px solid var(--border);
@@ -916,8 +943,8 @@ th {
 
 /* ===== CREATOR SECTION ===== */
 .creator-section {
-  margin-top: var(--space-2xl);
-  padding: var(--space-2xl) var(--space-xl);
+  margin-top: var(--space-3xl);
+  padding: var(--space-3xl) var(--space-2xl);
   border-radius: var(--radius-xl);
   background: linear-gradient(160deg, #1a1a2e 0%, #2a2050 50%, #3a2668 100%);
   color: #fff;
@@ -951,7 +978,7 @@ th {
 }
 
 .creator-card {
-  padding: var(--space-lg) var(--space-md);
+  padding: var(--space-xl) var(--space-lg);
   border-radius: var(--radius-lg);
   background: rgb(255 255 255 / 0.08);
   border: 1px solid rgb(255 255 255 / 0.12);
@@ -991,8 +1018,8 @@ th {
 
 /* ===== FINAL CTA ===== */
 .final-cta {
-  margin-top: var(--space-2xl);
-  padding: var(--space-3xl) var(--space-xl);
+  margin-top: var(--space-3xl);
+  padding: var(--space-3xl) var(--space-2xl);
   text-align: center;
   border-radius: var(--radius-xl);
   background: linear-gradient(160deg, #fff 0%, #f6f2ff 50%, #fff4f7 100%);
@@ -1213,10 +1240,9 @@ small.meta {
     max-width: none;
   }
 
-  .hero-floating-card {
-    position: static;
-    margin: 8px auto 0;
-    width: 100%;
+  .hero-visual-shell {
+    max-width: 400px;
+    margin: 0 auto;
   }
 
   .section-grid {

@@ -1,129 +1,27 @@
-<div class="hero-illustration" aria-hidden="true">
-  <svg viewBox="0 0 420 420" role="img" aria-label="Headphones and music illustration">
-    <defs>
-      <linearGradient id="halo" x1="0" x2="1" y1="0" y2="1">
-        <stop offset="0%" stop-color="#F0ECFF" />
-        <stop offset="100%" stop-color="#FFE2EA" />
-      </linearGradient>
-      <linearGradient id="hpGrad" x1="0" x2="1" y1="0" y2="1">
-        <stop offset="0%" stop-color="#7A5AF8" />
-        <stop offset="100%" stop-color="#9B7BFF" />
-      </linearGradient>
-      <linearGradient id="hpBand" x1="0.5" x2="0.5" y1="0" y2="1">
-        <stop offset="0%" stop-color="#6F4CE3" />
-        <stop offset="100%" stop-color="#9B7BFF" />
-      </linearGradient>
-      <linearGradient id="coralGrad" x1="0" x2="1" y1="0" y2="1">
-        <stop offset="0%" stop-color="#FF5E7E" />
-        <stop offset="100%" stop-color="#FF7A95" />
-      </linearGradient>
-      <linearGradient id="waveGrad" x1="0" x2="0" y1="0" y2="1">
-        <stop offset="0%" stop-color="#7A5AF8" />
-        <stop offset="100%" stop-color="#FF5E7E" />
-      </linearGradient>
-    </defs>
+---
+import WaveformCanvas from "./WaveformCanvas.astro";
 
-    <!-- Background halo -->
-    <circle cx="210" cy="210" r="175" fill="url(#halo)" opacity="0.7" />
-    <circle cx="210" cy="210" r="130" fill="#fff" opacity="0.3" />
+interface Props {
+  previewLabel?: string;
+}
 
-    <!-- Headband -->
-    <path d="M130 200 C130 130 290 130 290 200" fill="none" stroke="url(#hpBand)" stroke-width="14" stroke-linecap="round" />
-    <path d="M130 200 C130 130 290 130 290 200" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" opacity="0.25" />
+const { previewLabel = "Now Playing" } = Astro.props;
+---
 
-    <!-- Left ear cup -->
-    <rect x="106" y="192" width="48" height="64" rx="20" fill="url(#hpGrad)" />
-    <rect x="112" y="200" width="36" height="48" rx="14" fill="#6F4CE3" opacity="0.4" />
-    <ellipse cx="130" cy="224" rx="10" ry="14" fill="#fff" opacity="0.12" />
-    <!-- Left cushion -->
-    <rect x="100" y="198" width="12" height="52" rx="6" fill="#9B7BFF" />
-
-    <!-- Right ear cup -->
-    <rect x="266" y="192" width="48" height="64" rx="20" fill="url(#hpGrad)" />
-    <rect x="272" y="200" width="36" height="48" rx="14" fill="#6F4CE3" opacity="0.4" />
-    <ellipse cx="290" cy="224" rx="10" ry="14" fill="#fff" opacity="0.12" />
-    <!-- Right cushion -->
-    <rect x="308" y="198" width="12" height="52" rx="6" fill="#9B7BFF" />
-
-    <!-- Sound wave bars (center) -->
-    <g opacity="0.85">
-      <rect x="180" y="280" width="6" height="28" rx="3" fill="url(#waveGrad)" opacity="0.7">
-        <animate attributeName="height" values="28;16;28" dur="1.2s" repeatCount="indefinite" />
-        <animate attributeName="y" values="280;286;280" dur="1.2s" repeatCount="indefinite" />
-      </rect>
-      <rect x="192" y="274" width="6" height="40" rx="3" fill="url(#waveGrad)" opacity="0.85">
-        <animate attributeName="height" values="40;20;40" dur="1s" repeatCount="indefinite" />
-        <animate attributeName="y" values="274;284;274" dur="1s" repeatCount="indefinite" />
-      </rect>
-      <rect x="204" y="270" width="6" height="48" rx="3" fill="url(#waveGrad)">
-        <animate attributeName="height" values="48;24;48" dur="0.8s" repeatCount="indefinite" />
-        <animate attributeName="y" values="270;282;270" dur="0.8s" repeatCount="indefinite" />
-      </rect>
-      <rect x="216" y="274" width="6" height="40" rx="3" fill="url(#waveGrad)" opacity="0.85">
-        <animate attributeName="height" values="40;22;40" dur="1.1s" repeatCount="indefinite" />
-        <animate attributeName="y" values="274;283;274" dur="1.1s" repeatCount="indefinite" />
-      </rect>
-      <rect x="228" y="280" width="6" height="28" rx="3" fill="url(#waveGrad)" opacity="0.7">
-        <animate attributeName="height" values="28;14;28" dur="1.3s" repeatCount="indefinite" />
-        <animate attributeName="y" values="280;287;280" dur="1.3s" repeatCount="indefinite" />
-      </rect>
-    </g>
-
-    <!-- Floating music notes -->
-    <g opacity="0.6">
-      <!-- Note top-left -->
-      <g transform="translate(90, 140)">
-        <circle cx="0" cy="12" r="5" fill="url(#coralGrad)" />
-        <rect x="4" y="-8" width="2.5" height="20" rx="1" fill="url(#coralGrad)" />
-        <path d="M6.5-8 Q14-12 14-4" stroke="url(#coralGrad)" stroke-width="2.5" fill="none" stroke-linecap="round" />
-        <animateTransform attributeName="transform" type="translate" values="90,140;94,132;90,140" dur="4s" repeatCount="indefinite" />
-      </g>
-      <!-- Note top-right -->
-      <g transform="translate(316, 120)">
-        <circle cx="0" cy="12" r="4.5" fill="#9B7BFF" />
-        <rect x="4" y="-6" width="2" height="18" rx="1" fill="#9B7BFF" />
-        <animateTransform attributeName="transform" type="translate" values="316,120;320,114;316,120" dur="5s" repeatCount="indefinite" />
-      </g>
-      <!-- Double note right -->
-      <g transform="translate(340, 260)">
-        <circle cx="0" cy="10" r="4" fill="url(#coralGrad)" />
-        <circle cx="14" cy="8" r="4" fill="url(#coralGrad)" />
-        <rect x="3.5" y="-6" width="2" height="16" rx="1" fill="url(#coralGrad)" />
-        <rect x="17.5" y="-8" width="2" height="16" rx="1" fill="url(#coralGrad)" />
-        <line x1="5.5" y1="-6" x2="19.5" y2="-8" stroke="url(#coralGrad)" stroke-width="2.5" stroke-linecap="round" />
-        <animateTransform attributeName="transform" type="translate" values="340,260;344,252;340,260" dur="3.5s" repeatCount="indefinite" />
-      </g>
-      <!-- Note bottom-left -->
-      <g transform="translate(72, 280)">
-        <circle cx="0" cy="10" r="4" fill="#7A5AF8" />
-        <rect x="3.5" y="-6" width="2" height="16" rx="1" fill="#7A5AF8" />
-        <animateTransform attributeName="transform" type="translate" values="72,280;68,274;72,280" dur="4.5s" repeatCount="indefinite" />
-      </g>
-    </g>
-
-    <!-- Floating particles / sound dots -->
-    <g opacity="0.45">
-      <circle cx="160" cy="136" r="4" fill="#FF5E7E">
-        <animate attributeName="opacity" values="0.45;0.15;0.45" dur="3s" repeatCount="indefinite" />
-      </circle>
-      <circle cx="268" cy="142" r="3" fill="#7A5AF8">
-        <animate attributeName="opacity" values="0.4;0.1;0.4" dur="3.5s" repeatCount="indefinite" />
-      </circle>
-      <circle cx="148" cy="296" r="3.5" fill="#9B7BFF">
-        <animate attributeName="opacity" values="0.5;0.15;0.5" dur="2.8s" repeatCount="indefinite" />
-      </circle>
-      <circle cx="280" cy="310" r="3" fill="#FFE7EE">
-        <animate attributeName="opacity" values="0.6;0.2;0.6" dur="4s" repeatCount="indefinite" />
-      </circle>
-      <circle cx="118" cy="170" r="2.5" fill="#FFE7EE">
-        <animate attributeName="opacity" values="0.5;0.1;0.5" dur="2.5s" repeatCount="indefinite" />
-      </circle>
-      <circle cx="310" cy="180" r="2.5" fill="#FF5E7E">
-        <animate attributeName="opacity" values="0.4;0.1;0.4" dur="3.2s" repeatCount="indefinite" />
-      </circle>
-    </g>
-
-    <!-- Soft shadow under headphones -->
-    <ellipse cx="210" cy="340" rx="90" ry="16" fill="#D7CBFF" opacity="0.3" />
-  </svg>
+<div class="hero-card">
+  <div class="hero-card-image">
+    <img src="/lp.png" alt="PicoVoice — 紫髪猫耳VTuberキャラクター" loading="eager" />
+  </div>
+  <div class="hero-card-player">
+    <div class="hero-card-player-info">
+      <img src="/app-icon.png" alt="PicoVoice" class="hero-app-icon" width="36" height="36" />
+      <div class="hero-card-player-text">
+        <span class="hero-card-player-label">{previewLabel}</span>
+        <span class="hero-card-player-app">PicoVoice</span>
+      </div>
+    </div>
+    <div class="hero-card-waveform">
+      <WaveformCanvas urgent={true} />
+    </div>
+  </div>
 </div>
