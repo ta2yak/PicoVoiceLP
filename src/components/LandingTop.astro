@@ -37,25 +37,18 @@ const t = isEn
       ctaAria: "download app",
       preview: "Now Playing",
 
-      socialProofTitle: "Fans are already listening",
-      socialProofItems: [
-        { value: "100+", label: "Voice drops" },
-        { value: "30sec", label: "Per voice" },
-        { value: "Free", label: "To start" },
-      ],
-
       scenesEyebrow: "Your Daily Life, with Their Voice",
       scenes: [
-        { icon: icons.alarm, h: "Morning alarm", p: "Wake up to your favorite VTuber's \"Good morning!\" every day." },
+        { icon: icons.alarm, h: "Morning alarm", p: "With Download purchase, wake up to your favorite VTuber's \"Good morning!\" every day." },
         { icon: icons.headphones, h: "Commute companion", p: "Listen to exclusive voices while you're on the go." },
-        { icon: icons.bell, h: "Notification sounds", p: "Set a VTuber voice as your notification — a tiny joy, many times a day." },
+        { icon: icons.bell, h: "Notification sounds", p: "With Download purchase, set a VTuber voice as your notification — a tiny joy, many times a day." },
         { icon: icons.moon, h: "Night routine", p: "End your day with a soothing \"Goodnight\" from your oshi." },
       ],
 
       featuresEyebrow: "Why PicoVoice",
       features: [
         { icon: icons.diamond, h: "Limited = special", p: "Every voice has an end date. That scarcity makes each drop feel like a collectible." },
-        { icon: icons.music, h: "Stream or download", p: "Streaming for in-app playback, or Download to save the file and use it anywhere." },
+        { icon: icons.music, h: "Stream or download", p: "Streaming for in-app playback, or Download to save the file. The downloaded file can be used more freely." },
         { icon: icons.heart, h: "Built for oshi-katsu", p: "Designed for fans who want to feel closer to their favorite VTubers, every day." },
       ],
 
@@ -69,7 +62,7 @@ const t = isEn
         { icon: "1", h: "Browse", p: "Explore voice drops from VTubers in the Marketplace." },
         { icon: "2", h: "Preview", p: "Listen to a sample before you decide." },
         { icon: "3", h: "Purchase", p: "Choose Streaming or Download and get it instantly." },
-        { icon: "4", h: "Enjoy", p: "Play anytime in-app, or use the file as alarm, notification, and more." },
+        { icon: "4", h: "Enjoy", p: "Play anytime in-app, or use the downloaded file for alarms, notifications, and more." },
       ],
 
       creatorEyebrow: "For VTubers & Creators",
@@ -102,18 +95,11 @@ const t = isEn
       ctaAria: "アプリダウンロード",
       preview: "Now Playing",
 
-      socialProofTitle: "ファンはもう聴き始めています",
-      socialProofItems: [
-        { value: "100+", label: "ボイス作品" },
-        { value: "30秒", label: "1作品あたり" },
-        { value: "無料", label: "で始められる" },
-      ],
-
       scenesEyebrow: "推しの声がある毎日",
       scenes: [
-        { icon: icons.alarm, h: "朝の目覚まし", p: "推しの「おはよう」で始まる毎日。いつもの目覚ましが特別になる。" },
+        { icon: icons.alarm, h: "朝の目覚まし", p: "ダウンロード購入時は、推しの「おはよう」で始まる毎日に。いつもの目覚ましが特別になる。" },
         { icon: icons.headphones, h: "通勤のおともに", p: "移動中にお気に入りの限定ボイスを聴く。小さな幸せ。" },
-        { icon: icons.bell, h: "通知音にセット", p: "推しの声で通知が届く。何度でも嬉しいサプライズ。" },
+        { icon: icons.bell, h: "通知音にセット", p: "ダウンロード購入時は、推しの声で通知が届く。何度でも嬉しいサプライズ。" },
         { icon: icons.moon, h: "夜のおやすみ", p: "推しの「おやすみ」で一日を締めくくる。心が安らぐひととき。" },
       ],
 
@@ -134,7 +120,7 @@ const t = isEn
         { icon: "1", h: "見つける", p: "マーケットプレイスでVTuberのボイスを探す。" },
         { icon: "2", h: "試聴する", p: "気になるボイスをその場でプレビュー。" },
         { icon: "3", h: "購入する", p: "ストリーミングかダウンロードを選んで即ゲット。" },
-        { icon: "4", h: "楽しむ", p: "アプリで再生。ファイルはアラームや通知音にも。" },
+        { icon: "4", h: "楽しむ", p: "アプリで再生。ダウンロードで保存したファイルはアラームや通知音にも。" },
       ],
 
       creatorEyebrow: "VTuber・クリエイターの方へ",
@@ -180,19 +166,6 @@ const t = isEn
         <HeroIllustration previewLabel={t.preview} />
       </div>
     </div>
-  </div>
-</section>
-
-<!-- ===== SOCIAL PROOF ===== -->
-<section class="social-proof reveal-up delay-1">
-  <p class="social-proof-title">{t.socialProofTitle}</p>
-  <div class="social-proof-grid">
-    {t.socialProofItems.map((item) => (
-      <div class="social-proof-item">
-        <span class="social-proof-value">{item.value}</span>
-        <span class="social-proof-label">{item.label}</span>
-      </div>
-    ))}
   </div>
 </section>
 
