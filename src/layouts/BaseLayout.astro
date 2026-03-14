@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import { resolveAppStoreURL } from "../lib/app-store-url";
 
 interface Props {
   title: string;
@@ -86,7 +87,7 @@ const sharedJsonLd: Record<string, unknown>[] = [
   ...extraJsonLd,
 ];
 
-const appStoreUrl = "https://apps.apple.com/app/picovoice/id6759188352";
+const appStoreUrl = resolveAppStoreURL(lang);
 const homePath = lang === "en" ? "/en/" : "/";
 const howItWorksHref = `${homePath}#how-it-works`;
 const forCreatorsHref = `${homePath}#for-creators`;

@@ -1,8 +1,9 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import LandingTop from "../../components/LandingTop.astro";
+import { resolveAppStoreURL } from "../../lib/app-store-url";
 
-const appStoreUrl = "https://apps.apple.com/app/picovoice/id6759188352";
+const appStoreUrl = resolveAppStoreURL("en");
 ---
 
 <BaseLayout
