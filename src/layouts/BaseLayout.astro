@@ -87,6 +87,9 @@ const sharedJsonLd: Record<string, unknown>[] = [
 ];
 
 const appStoreUrl = "https://apps.apple.com/app/picovoice/id6759188352";
+const homePath = lang === "en" ? "/en/" : "/";
+const howItWorksHref = `${homePath}#how-it-works`;
+const forCreatorsHref = `${homePath}#for-creators`;
 ---
 
 <!doctype html>
@@ -124,14 +127,14 @@ const appStoreUrl = "https://apps.apple.com/app/picovoice/id6759188352";
   <body>
     <header class="site-header">
       <div class="header-inner">
-        <a class="brand" href={lang === "en" ? "/en/" : "/"}>
+        <a class="brand" href={homePath}>
           <img class="brand-icon-img" src="/app-icon.png" alt="" width="28" height="28" />
           PicoVoice
         </a>
         <div class="header-tools">
           <nav class="nav-desktop">
-            <a href="#how-it-works">{navLabels.howItWorks}</a>
-            <a href="#for-creators">{navLabels.forCreators}</a>
+            <a href={howItWorksHref}>{navLabels.howItWorks}</a>
+            <a href={forCreatorsHref}>{navLabels.forCreators}</a>
             <a href={lang === "en" ? "/en/faq" : "/faq"}>{navLabels.faq}</a>
           </nav>
           {
@@ -160,8 +163,8 @@ const appStoreUrl = "https://apps.apple.com/app/picovoice/id6759188352";
         </div>
       </div>
       <nav class="nav-mobile" aria-hidden="true">
-        <a href="#how-it-works">{navLabels.howItWorks}</a>
-        <a href="#for-creators">{navLabels.forCreators}</a>
+        <a href={howItWorksHref}>{navLabels.howItWorks}</a>
+        <a href={forCreatorsHref}>{navLabels.forCreators}</a>
         <a href={lang === "en" ? "/en/faq" : "/faq"}>{navLabels.faq}</a>
         <a class="nav-mobile-cta" href={appStoreUrl} target="_blank" rel="noreferrer">{navLabels.cta}</a>
       </nav>
